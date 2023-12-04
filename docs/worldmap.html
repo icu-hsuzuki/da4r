@@ -4,24 +4,24 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>C World Map | Data Analysis for Researchers AY2022</title>
+<title>C World Map | Data Analysis for Researchers</title>
 <meta name="author" content="Hiroshi Suzuki">
 <meta name="description" content="In this chapter, we study the topic of drawing world maps using ggplot2. Using a map data in data.frame to apply geom_map or geom_polygon is possible. However, recently, we can obtain a map data...">
-<meta name="generator" content="bookdown 0.33 with bs4_book()">
-<meta property="og:title" content="C World Map | Data Analysis for Researchers AY2022">
+<meta name="generator" content="bookdown 0.36 with bs4_book()">
+<meta property="og:title" content="C World Map | Data Analysis for Researchers">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://icu-hsuzuki.github.io/da4r2022/worldmap.html">
 <meta property="og:description" content="In this chapter, we study the topic of drawing world maps using ggplot2. Using a map data in data.frame to apply geom_map or geom_polygon is possible. However, recently, we can obtain a map data...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C World Map | Data Analysis for Researchers AY2022">
+<meta name="twitter:title" content="C World Map | Data Analysis for Researchers">
 <meta name="twitter:description" content="In this chapter, we study the topic of drawing world maps using ggplot2. Using a map data in data.frame to apply geom_map or geom_polygon is possible. However, recently, we can obtain a map data...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script><link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
-<script src="libs/datatables-binding-0.27/datatables.js"></script><link href="libs/dt-core-1.12.1/css/jquery.dataTables.min.css" rel="stylesheet">
-<link href="libs/dt-core-1.12.1/css/jquery.dataTables.extra.css" rel="stylesheet">
-<script src="libs/dt-core-1.12.1/js/jquery.dataTables.min.js"></script><link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+<script src="libs/datatables-binding-0.30/datatables.js"></script><link href="libs/dt-core-1.13.4/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="libs/dt-core-1.13.4/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="libs/dt-core-1.13.4/js/jquery.dataTables.min.js"></script><link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
 <script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
@@ -58,7 +58,7 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="">Data Analysis for Researchers AY2022</a>
+        <a href="index.html" title="">Data Analysis for Researchers</a>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
@@ -111,7 +111,7 @@
 </ul>
 
         <div class="book-extra">
-          <p><a id="book-repo" href="https://github.com/icu-hsuzuki/da4r2022">View book source <i class="fab fa-github"></i></a></p>
+          <p><a id="book-repo" href="https://github.com/icu-hsuzuki/da4r">View book source <i class="fab fa-github"></i></a></p>
         </div>
       </nav>
 </div>
@@ -125,14 +125,14 @@
 <h2>
 <span class="header-section-number">C.1</span> Setup<a class="anchor" aria-label="anchor" href="#setup-6"><i class="fas fa-link"></i></a>
 </h2>
-<div class="sourceCode" id="cb719"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb721"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; ── Attaching core tidyverse packages ──── tidyverse 2.0.0 ──</span></span>
-<span><span class="co">#&gt; ✔ dplyr     1.1.2     ✔ readr     2.1.4</span></span>
+<span><span class="co">#&gt; ✔ dplyr     1.1.3     ✔ readr     2.1.4</span></span>
 <span><span class="co">#&gt; ✔ forcats   1.0.0     ✔ stringr   1.5.0</span></span>
-<span><span class="co">#&gt; ✔ ggplot2   3.4.2     ✔ tibble    3.2.1</span></span>
-<span><span class="co">#&gt; ✔ lubridate 1.9.2     ✔ tidyr     1.3.0</span></span>
-<span><span class="co">#&gt; ✔ purrr     1.0.1     </span></span>
+<span><span class="co">#&gt; ✔ ggplot2   3.4.4     ✔ tibble    3.2.1</span></span>
+<span><span class="co">#&gt; ✔ lubridate 1.9.3     ✔ tidyr     1.3.0</span></span>
+<span><span class="co">#&gt; ✔ purrr     1.0.2     </span></span>
 <span><span class="co">#&gt; ── Conflicts ────────────────────── tidyverse_conflicts() ──</span></span>
 <span><span class="co">#&gt; ✖ dplyr::filter() masks stats::filter()</span></span>
 <span><span class="co">#&gt; ✖ dplyr::lag()    masks stats::lag()</span></span>
@@ -144,10 +144,10 @@
 <span><span class="co">#&gt; Loading required package: sysfonts</span></span>
 <span><span class="co">#&gt; Loading required package: showtextdb</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/showtext/man/showtext_auto.html">showtext_auto</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p>We will use <code>income</code> level data with the iso2c code of each country obtained using <code><a href="https://vincentarelbundock.github.io/WDI/reference/WDIcache.html">WDIcache()</a></code>.</p>
-<div class="sourceCode" id="cb720"><pre class="downlit sourceCode r">
+<p>We will use <code>income</code> level data with the iso2c code of each country obtained using <code><a href="https://rdrr.io/pkg/WDI/man/WDIcache.html">WDIcache()</a></code>.</p>
+<div class="sourceCode" id="cb722"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">wdi_cache</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_rds.html">read_rds</a></span><span class="op">(</span><span class="st">"./data/wdi_cache.RData"</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb721"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb723"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">wdi_cache</span><span class="op">$</span><span class="va">country</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Rows: 299</span></span>
 <span><span class="co">#&gt; Columns: 9</span></span>
@@ -160,7 +160,7 @@
 <span><span class="co">#&gt; $ latitude  &lt;chr&gt; "12.5167", "", "34.5228", "", "", "-8.81…</span></span>
 <span><span class="co">#&gt; $ income    &lt;chr&gt; "High income", "Aggregates", "Low income…</span></span>
 <span><span class="co">#&gt; $ lending   &lt;chr&gt; "Not classified", "Aggregates", "IDA", "…</span></span></code></pre></div>
-<div class="sourceCode" id="cb722"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb724"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">wdi_income</span> <span class="op">&lt;-</span> <span class="va">wdi_cache</span><span class="op">$</span><span class="va">country</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">region</span> <span class="op">!=</span> <span class="st">"Aggregates"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">iso2c</span>, <span class="va">income</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
@@ -202,8 +202,9 @@
 <h3>
 <span class="header-section-number">C.2.1</span> <code>ne_countries</code><a class="anchor" aria-label="anchor" href="#ne_countries"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb724"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb726"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/rnaturalearth/">rnaturalearth</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; Support for Spatial objects (`sp`) will be deprecated in {rnaturalearth} and will be removed in a future release of the package. Please use `sf` objects with {rnaturalearth}. For example: `ne_download(returnclass = 'sf')`</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/ropenscilabs/rnaturalearthdata">rnaturalearthdata</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Attaching package: 'rnaturalearthdata'</span></span>
@@ -238,18 +239,18 @@
 <span class="header-section-number">C.2.1.2</span> Examples<a class="anchor" aria-label="anchor" href="#examples-2"><i class="fas fa-link"></i></a>
 </h4>
 <p>There are three scales. Add <code>returnclass = "sf"</code> as an option to obtain data in <code>sf</code> format.</p>
-<div class="sourceCode" id="cb726"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb728"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://docs.ropensci.org/rnaturalearth/reference/ne_countries.html">ne_countries</a></span><span class="op">(</span>scale <span class="op">=</span> <span class="st">"large"</span>, returnclass <span class="op">=</span> <span class="st">"sf"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="51-worldmap_files/figure-html/unnamed-chunk-6-1.png" width="672"></div>
-<div class="sourceCode" id="cb727"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb729"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://docs.ropensci.org/rnaturalearth/reference/ne_countries.html">ne_countries</a></span><span class="op">(</span>scale <span class="op">=</span> <span class="st">"small"</span>, returnclass <span class="op">=</span> <span class="st">"sf"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="51-worldmap_files/figure-html/unnamed-chunk-7-1.png" width="672"></div>
 <p>We will use <code>medium</code> scale data in the following.</p>
-<div class="sourceCode" id="cb728"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb730"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ne_world</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://docs.ropensci.org/rnaturalearth/reference/ne_countries.html">ne_countries</a></span><span class="op">(</span>scale <span class="op">=</span> <span class="st">"medium"</span>, returnclass <span class="op">=</span> <span class="st">"sf"</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb729"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb731"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">ne_world</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Rows: 241</span></span>
 <span><span class="co">#&gt; Columns: 64</span></span>
@@ -318,28 +319,28 @@
 <span><span class="co">#&gt; $ homepart   &lt;dbl&gt; NA, 1, 1, NA, 1, NA, 1, 1, 1, 1, NA, 1,…</span></span>
 <span><span class="co">#&gt; $ geometry   &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-69.89912 …</span></span></code></pre></div>
 <p>The last column is the geometry which contains map data in multi-polygon format.</p>
-<div class="sourceCode" id="cb730"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb732"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ne_world</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="51-worldmap_files/figure-html/unnamed-chunk-10-1.png" width="672"></div>
 <p>This map data comes with various information.</p>
-<div class="sourceCode" id="cb731"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb733"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ne_world</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">income_grp</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure">
 <img src="51-worldmap_files/figure-html/unnamed-chunk-11-1.png" width="672">
 You can specify a ‘continent’, a ‘region_un’, a ‘subregion’ or ‘region_wb’.</div>
-<div class="sourceCode" id="cb732"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb734"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ne_world</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/distinct.html">distinct</a></span><span class="op">(</span><span class="va">continent</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "North America"           "Asia"                   </span></span>
 <span><span class="co">#&gt; [3] "Africa"                  "Europe"                 </span></span>
 <span><span class="co">#&gt; [5] "South America"           "Oceania"                </span></span>
 <span><span class="co">#&gt; [7] "Antarctica"              "Seven seas (open ocean)"</span></span></code></pre></div>
-<div class="sourceCode" id="cb733"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb735"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ne_world</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/distinct.html">distinct</a></span><span class="op">(</span><span class="va">region_un</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "Americas"                "Asia"                   </span></span>
 <span><span class="co">#&gt; [3] "Africa"                  "Europe"                 </span></span>
 <span><span class="co">#&gt; [5] "Oceania"                 "Antarctica"             </span></span>
 <span><span class="co">#&gt; [7] "Seven seas (open ocean)"</span></span></code></pre></div>
-<div class="sourceCode" id="cb734"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb736"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ne_world</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/distinct.html">distinct</a></span><span class="op">(</span><span class="va">subregion</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt;  [1] "Caribbean"                 "Southern Asia"            </span></span>
 <span><span class="co">#&gt;  [3] "Middle Africa"             "Southern Europe"          </span></span>
@@ -353,7 +354,7 @@ You can specify a ‘continent’, a ‘region_un’, a ‘subregion’ or ‘re
 <span><span class="co">#&gt; [19] "Southern Africa"           "Eastern Asia"             </span></span>
 <span><span class="co">#&gt; [21] "Northern Africa"           "Melanesia"                </span></span>
 <span><span class="co">#&gt; [23] "Micronesia"                "Central Asia"</span></span></code></pre></div>
-<div class="sourceCode" id="cb735"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb737"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ne_world</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/distinct.html">distinct</a></span><span class="op">(</span><span class="va">region_wb</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "Latin America &amp; Caribbean" </span></span>
 <span><span class="co">#&gt; [2] "South Asia"                </span></span>
@@ -363,11 +364,11 @@ You can specify a ‘continent’, a ‘region_un’, a ‘subregion’ or ‘re
 <span><span class="co">#&gt; [6] "East Asia &amp; Pacific"       </span></span>
 <span><span class="co">#&gt; [7] "Antarctica"                </span></span>
 <span><span class="co">#&gt; [8] "North America"</span></span></code></pre></div>
-<div class="sourceCode" id="cb736"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb738"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ne_world</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">subregion</span> <span class="op">==</span> <span class="st">"South-Eastern Asia"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">iso_a2</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="51-worldmap_files/figure-html/unnamed-chunk-16-1.png" width="672"></div>
-<div class="sourceCode" id="cb737"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb739"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ne_world</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">continent</span> <span class="op">==</span> <span class="st">'Africa'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">subregion</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="51-worldmap_files/figure-html/unnamed-chunk-17-1.png" width="672"></div>
@@ -376,7 +377,7 @@ You can specify a ‘continent’, a ‘region_un’, a ‘subregion’ or ‘re
 <h4>
 <span class="header-section-number">C.2.1.3</span> <code>type</code> argument<a class="anchor" aria-label="anchor" href="#type-argument"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb738"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb740"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://docs.ropensci.org/rnaturalearth/reference/ne_countries.html">ne_countries</a></span><span class="op">(</span>type <span class="op">=</span> <span class="st">"countries"</span>, country <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Japan"</span>, <span class="st">"South Korea"</span>, <span class="st">"North Korea"</span>, <span class="st">"China"</span>, <span class="st">"Taiwan"</span>, <span class="st">"Mongolia"</span><span class="op">)</span>, scale <span class="op">=</span> <span class="st">"medium"</span>, returnclass <span class="op">=</span> <span class="st">"sf"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">economy</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="51-worldmap_files/figure-html/unnamed-chunk-18-1.png" width="672"></div>
@@ -420,9 +421,9 @@ You can specify a ‘continent’, a ‘region_un’, a ‘subregion’ or ‘re
 <ul>
 <li>SpatialPolygons DataFrame or sf</li>
 </ul>
-<div class="sourceCode" id="cb740"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb742"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ne_world_admin1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://docs.ropensci.org/rnaturalearth/reference/ne_states.html">ne_states</a></span><span class="op">(</span>returnclass <span class="op">=</span> <span class="st">"sf"</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb741"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb743"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">ne_world_admin1</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Rows: 4,596</span></span>
 <span><span class="co">#&gt; Columns: 122</span></span>
@@ -548,7 +549,7 @@ You can specify a ‘continent’, a ‘region_un’, a ‘subregion’ or ‘re
 <span><span class="co">#&gt; $ FCLASS_UA  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…</span></span>
 <span><span class="co">#&gt; $ FCLASS_TLC &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…</span></span>
 <span><span class="co">#&gt; $ geometry   &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-58.20011 …</span></span></code></pre></div>
-<div class="sourceCode" id="cb742"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb744"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ne_world_admin1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">iso_a2</span> <span class="op">!=</span> <span class="st">"-1"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">admin</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/distinct.html">distinct</a></span><span class="op">(</span><span class="va">iso_a2</span>, <span class="va">admin</span><span class="op">)</span></span>
@@ -566,26 +567,26 @@ You can specify a ‘continent’, a ‘region_un’, a ‘subregion’ or ‘re
 <span><span class="co">#&gt;  9 AQ     Antarctica         </span></span>
 <span><span class="co">#&gt; 10 AG     Antigua and Barbuda</span></span>
 <span><span class="co">#&gt; # ℹ 233 more rows</span></span></code></pre></div>
-<div class="sourceCode" id="cb743"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb745"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">country</span> <span class="op">&lt;-</span> <span class="st">"Japan"</span></span>
 <span><span class="va">ne_world_admin1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">admin</span> <span class="op">==</span> <span class="va">country</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="51-worldmap_files/figure-html/unnamed-chunk-22-1.png" width="672"></div>
-<div class="sourceCode" id="cb744"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb746"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">iso2s</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"IN"</span>,<span class="st">"PK"</span>,<span class="st">"BD"</span>,<span class="st">"LK"</span><span class="op">)</span></span>
 <span><span class="va">ne_world_admin1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">iso_a2</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">iso2s</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">admin</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="51-worldmap_files/figure-html/unnamed-chunk-23-1.png" width="672"></div>
-<div class="sourceCode" id="cb745"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb747"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">regions</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Tohoku"</span><span class="op">)</span></span>
 <span><span class="va">ne_world_admin1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">region</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">regions</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">name_local</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="51-worldmap_files/figure-html/unnamed-chunk-24-1.png" width="672"></div>
-<div class="sourceCode" id="cb746"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb748"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ne_world_admin1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">iso_a2</span> <span class="op">==</span> <span class="st">"JP"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">region</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="51-worldmap_files/figure-html/unnamed-chunk-25-1.png" width="672"></div>
-<div class="sourceCode" id="cb747"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb749"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ne_world_admin1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">admin</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="st">"Japan"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">name_local</span>, <span class="va">region</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">region</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 2 × 2</span></span>
@@ -593,7 +594,7 @@ You can specify a ‘continent’, a ‘region_un’, a ‘subregion’ or ‘re
 <span><span class="co">#&gt;   &lt;chr&gt;      &lt;chr&gt; </span></span>
 <span><span class="co">#&gt; 1 佐賀県     &lt;NA&gt;  </span></span>
 <span><span class="co">#&gt; 2 長崎県     &lt;NA&gt;</span></span></code></pre></div>
-<div class="sourceCode" id="cb748"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb750"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ne_world_admin1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>region <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span></span>
 <span>  <span class="va">name_local</span> <span class="op">==</span> <span class="st">"佐賀県"</span> <span class="op">~</span> <span class="st">"Kyushu"</span>,</span>
 <span>  <span class="va">name_local</span> <span class="op">==</span> <span class="st">"長崎県"</span> <span class="op">~</span> <span class="st">"Kyushu"</span>,</span>
@@ -602,7 +603,7 @@ You can specify a ‘continent’, a ‘region_un’, a ‘subregion’ or ‘re
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">name_local</span>, <span class="va">region</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">region</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 0 × 2</span></span>
 <span><span class="co">#&gt; # ℹ 2 variables: name_local &lt;chr&gt;, region &lt;chr&gt;</span></span></code></pre></div>
-<div class="sourceCode" id="cb749"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb751"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ne_world_admin1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>region <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span></span>
 <span>  <span class="va">name_local</span> <span class="op">==</span> <span class="st">"佐賀県"</span> <span class="op">~</span> <span class="st">"Kyushu"</span>,</span>
 <span>  <span class="va">name_local</span> <span class="op">==</span> <span class="st">"長崎県"</span> <span class="op">~</span> <span class="st">"Kyushu"</span>,</span>
@@ -627,16 +628,16 @@ You can specify a ‘continent’, a ‘region_un’, a ‘subregion’ or ‘re
 <li>Manual: <a href="https://cran.r-project.org/web/packages/geodata/geodata.pdf" class="uri">https://cran.r-project.org/web/packages/geodata/geodata.pdf</a>
 </li>
 </ul>
-<div class="sourceCode" id="cb750"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb752"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">geodata</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Loading required package: terra</span></span>
-<span><span class="co">#&gt; terra 1.7.29</span></span>
+<span><span class="co">#&gt; terra 1.7.55</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Attaching package: 'terra'</span></span>
 <span><span class="co">#&gt; The following object is masked from 'package:tidyr':</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;     extract</span></span></code></pre></div>
-<div class="sourceCode" id="cb751"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb753"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/geodata/man/world.html">world</a></span><span class="op">(</span>resolution<span class="op">=</span><span class="fl">5</span>, level<span class="op">=</span><span class="fl">0</span>, path <span class="op">=</span> <span class="st">"./data"</span><span class="op">)</span></span>
 <span><span class="co">#&gt;  class       : SpatVector </span></span>
 <span><span class="co">#&gt;  geometry    : polygons </span></span>
@@ -648,40 +649,40 @@ You can specify a ‘continent’, a ‘region_un’, a ‘subregion’ or ‘re
 <span><span class="co">#&gt;  values      :   ABW       Aruba</span></span>
 <span><span class="co">#&gt;                  AFG Afghanistan</span></span>
 <span><span class="co">#&gt;                  AGO      Angola</span></span></code></pre></div>
-<div class="sourceCode" id="cb752"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb754"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">world5</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/serialize.html">readRDS</a></span><span class="op">(</span><span class="st">"./data/gadm/gadm36_adm0_r5_pk.rds"</span><span class="op">)</span></span>
 <span><span class="va">world5</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Rows: 231</span></span>
 <span><span class="co">#&gt; Columns: 2</span></span>
 <span><span class="co">#&gt; $ GID_0  &lt;chr&gt; "ABW", "AFG", "AGO", "ALA", "ALB", "AND", "…</span></span>
 <span><span class="co">#&gt; $ NAME_0 &lt;chr&gt; "Aruba", "Afghanistan", "Angola", "Åland", …</span></span></code></pre></div>
-<div class="sourceCode" id="cb753"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb755"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">world5</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html">st_as_sf</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="51-worldmap_files/figure-html/unnamed-chunk-32-1.png" width="672"></div>
-<div class="sourceCode" id="cb754"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb756"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">world5</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html">st_as_sf</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">GID_0</span> <span class="op">==</span> <span class="st">"JPN"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="51-worldmap_files/figure-html/unnamed-chunk-33-1.png" width="672"></div>
-<div class="sourceCode" id="cb755"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb757"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/geodata/man/world.html">world</a></span><span class="op">(</span>resolution<span class="op">=</span><span class="fl">1</span>, level<span class="op">=</span><span class="fl">0</span>, path <span class="op">=</span> <span class="st">"./data"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html">st_as_sf</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="51-worldmap_files/figure-html/unnamed-chunk-34-1.png" width="672"></div>
-<div class="sourceCode" id="cb756"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb758"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/geodata/man/world.html">world</a></span><span class="op">(</span>path <span class="op">=</span> <span class="st">"./data"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html">st_as_sf</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="51-worldmap_files/figure-html/unnamed-chunk-35-1.png" width="672"></div>
-<div class="sourceCode" id="cb757"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb759"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/geodata/man/world.html">world</a></span><span class="op">(</span>resolution<span class="op">=</span><span class="fl">1</span>, level<span class="op">=</span><span class="fl">0</span>, path <span class="op">=</span> <span class="st">"./data"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html">st_as_sf</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">NAME_0</span> <span class="op">==</span> <span class="st">"Japan"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="51-worldmap_files/figure-html/unnamed-chunk-36-1.png" width="672"></div>
-<div class="sourceCode" id="cb758"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb760"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/geodata/man/world.html">world</a></span><span class="op">(</span>resolution<span class="op">=</span><span class="fl">1</span>, level<span class="op">=</span><span class="fl">0</span>, path <span class="op">=</span> <span class="st">"./data"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html">st_as_sf</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">NAME_0</span> <span class="op"><a href="https://rdrr.io/pkg/terra/man/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"India"</span>,<span class="st">"Pakistan"</span>, <span class="st">"Bangladesh"</span> , <span class="st">"Sri Lanka"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">GID_0</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="51-worldmap_files/figure-html/unnamed-chunk-37-1.png" width="672"></div>
-<div class="sourceCode" id="cb759"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb761"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">world5_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html">st_as_sf</a></span><span class="op">(</span><span class="va">world5</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_crs.html">st_set_crs</a></span><span class="op">(</span><span class="st">"+proj=longlat +datum=WGS84"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_transform.html">st_transform</a></span><span class="op">(</span><span class="va">.</span>, <span class="st">"+proj=robin"</span><span class="op">)</span></span>
@@ -707,13 +708,13 @@ You can specify a ‘continent’, a ‘region_un’, a ‘subregion’ or ‘re
 </ul>
 </li>
 </ul>
-<div class="sourceCode" id="cb760"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb762"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">gadm0</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/geodata/man/gadm.html">gadm</a></span><span class="op">(</span><span class="st">"JPN"</span>, level <span class="op">=</span> <span class="fl">0</span>, path <span class="op">=</span> <span class="st">"./data/"</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb761"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb763"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">gadm0</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html">st_as_sf</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="51-worldmap_files/figure-html/unnamed-chunk-40-1.png" width="672"></div>
-<div class="sourceCode" id="cb762"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb764"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">gadm1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/geodata/man/gadm.html">gadm</a></span><span class="op">(</span><span class="st">"JPN"</span>, level <span class="op">=</span> <span class="fl">1</span>, path <span class="op">=</span> <span class="st">"./data/"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html">st_as_sf</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="va">gadm1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Rows: 47</span></span>
@@ -730,11 +731,11 @@ You can specify a ‘continent’, a ‘region_un’, a ‘subregion’ or ‘re
 <span><span class="co">#&gt; $ HASC_1    &lt;chr&gt; "JP.AI", "JP.AK", "JP.AO", "JP.CH", "JP.…</span></span>
 <span><span class="co">#&gt; $ ISO_1     &lt;chr&gt; "JP-23", "JP-05", "JP-02", "JP-12", "JP-…</span></span>
 <span><span class="co">#&gt; $ geometry  &lt;GEOMETRY [°]&gt; MULTIPOLYGON (((137.0974 34...,…</span></span></code></pre></div>
-<div class="sourceCode" id="cb763"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb765"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">gadm1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">NAME_1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="51-worldmap_files/figure-html/unnamed-chunk-42-1.png" width="672"></div>
-<div class="sourceCode" id="cb764"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb766"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">gadm2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/geodata/man/gadm.html">gadm</a></span><span class="op">(</span><span class="st">"JPN"</span>, level <span class="op">=</span> <span class="fl">2</span>, path <span class="op">=</span> <span class="st">"./data/"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html">st_as_sf</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="va">gadm2</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Rows: 1,811</span></span>
@@ -753,7 +754,7 @@ You can specify a ‘continent’, a ‘region_un’, a ‘subregion’ or ‘re
 <span><span class="co">#&gt; $ CC_2      &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span></span>
 <span><span class="co">#&gt; $ HASC_2    &lt;chr&gt; NA, NA, NA, NA, "JP.AI.CG", NA, NA, "JP.…</span></span>
 <span><span class="co">#&gt; $ geometry  &lt;GEOMETRY [°]&gt; POLYGON ((136.8802 34.94398...,…</span></span></code></pre></div>
-<div class="sourceCode" id="cb765"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb767"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">gadm2</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">NL_NAME_1</span> <span class="op"><a href="https://rdrr.io/pkg/terra/man/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"埼玉県"</span>, <span class="st">"群馬県"</span>, <span class="st">"栃木県"</span>, <span class="st">"茨城県"</span>, <span class="st">"千葉県"</span>, <span class="st">"神奈川県"</span>, <span class="st">"東京都"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">NAME_1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/lims.html">ylim</a></span><span class="op">(</span><span class="fl">34.7</span>,<span class="fl">37.2</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/lims.html">xlim</a></span><span class="op">(</span><span class="fl">138.2</span>,<span class="fl">141</span><span class="op">)</span> <span class="op">+</span> </span>
@@ -788,8 +789,8 @@ You can specify a ‘continent’, a ‘region_un’, a ‘subregion’ or ‘re
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/icu-hsuzuki/da4r2022/blob/master/51-worldmap.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/icu-hsuzuki/da4r2022/edit/master/51-worldmap.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/icu-hsuzuki/da4r/blob/master/51-worldmap.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/icu-hsuzuki/da4r/edit/master/51-worldmap.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -801,7 +802,7 @@ You can specify a ‘continent’, a ‘region_un’, a ‘subregion’ or ‘re
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Data Analysis for Researchers AY2022</strong>" was written by Hiroshi Suzuki. It was last built on 2023-05-13.</p>
+    <p>"<strong>Data Analysis for Researchers</strong>" was written by Hiroshi Suzuki. It was last built on 2023-12-04.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -42,9 +42,18 @@ Our world in data also provides vairous data related to covid-19. We will study 
 
 ## Krispin's Package
 
-```{r cache = TRUE}
+```{r eval = FALSE, cache = TRUE}
 coronavirus_tv <- read_csv("https://github.com/RamiKrispin/coronavirus/raw/master/csv/coronavirus.csv")
 ```
+
+```{r eval = FALSE}
+write_csv(coronavirus_tv, "data/coronavirus_tv.csv")
+```
+
+```{r echo=FALSE}
+coronavirus_tv <- read_csv("data/coronavirus_tv.csv")
+```
+
 
 ```{r cache = TRUE}
 COUNTRY <- "Japan"

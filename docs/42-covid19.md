@@ -1,6 +1,6 @@
 # Covid 19 {#covid19}
 
-> An example of an R Notebook, rendered at 2023-05-13 23:15:09 JST  
+> An example of an R Notebook, rendered at 2023-12-04 12:23:18 JST  
 
 
 ## Introduction
@@ -27,11 +27,11 @@ install.packages("coronavirus")
 ```r
 library(tidyverse)
 #> ── Attaching core tidyverse packages ──── tidyverse 2.0.0 ──
-#> ✔ dplyr     1.1.2     ✔ readr     2.1.4
+#> ✔ dplyr     1.1.3     ✔ readr     2.1.4
 #> ✔ forcats   1.0.0     ✔ stringr   1.5.0
-#> ✔ ggplot2   3.4.2     ✔ tibble    3.2.1
-#> ✔ lubridate 1.9.2     ✔ tidyr     1.3.0
-#> ✔ purrr     1.0.1     
+#> ✔ ggplot2   3.4.4     ✔ tibble    3.2.1
+#> ✔ lubridate 1.9.3     ✔ tidyr     1.3.0
+#> ✔ purrr     1.0.2     
 #> ── Conflicts ────────────────────── tidyverse_conflicts() ──
 #> ✖ dplyr::filter() masks stats::filter()
 #> ✖ dplyr::lag()    masks stats::lag()
@@ -57,6 +57,15 @@ Our world in data also provides vairous data related to covid-19. We will study 
 
 ```r
 coronavirus_tv <- read_csv("https://github.com/RamiKrispin/coronavirus/raw/master/csv/coronavirus.csv")
+```
+
+
+```r
+write_csv(coronavirus_tv, "data/coronavirus_tv.csv")
+```
+
+
+```
 #> Rows: 919308 Columns: 15
 #> ── Column specification ────────────────────────────────────
 #> Delimiter: ","
@@ -67,6 +76,7 @@ coronavirus_tv <- read_csv("https://github.com/RamiKrispin/coronavirus/raw/maste
 #> ℹ Use `spec()` to retrieve the full column specification for this data.
 #> ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 ```
+
 
 
 ```r
@@ -85,7 +95,7 @@ ggplot(df_tv_confirmed_pp) + geom_line(aes(x = date, y = confirmed_pp), col = "r
        title = paste("Number of Confirmed Cases per 100,000 ", COUNTRY))
 ```
 
-<img src="42-covid19_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+<img src="42-covid19_files/figure-html/unnamed-chunk-6-1.png" width="672" />
 
 
 ```r
@@ -104,7 +114,7 @@ coronavirus_tv %>% select(c(date, country, type, cases, population)) %>%
        title = "Number of Confirmed Cases per 100,000")
 ```
 
-<img src="42-covid19_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+<img src="42-covid19_files/figure-html/unnamed-chunk-7-1.png" width="672" />
 
 
 
@@ -127,7 +137,7 @@ ggplot(df_tv1_confirmed_pp) +
        title = "Number of Confirmed Cases per 100,000")
 ```
 
-<img src="42-covid19_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+<img src="42-covid19_files/figure-html/unnamed-chunk-8-1.png" width="672" />
 
 
 ## Data of Johns Hopkins Universiy
@@ -143,17 +153,17 @@ We import the original Johns Hopkins Github data.
 ```r
 # IMPORT RAW DATA: Johns Hopkins Github data
 confirmedraw <- read_csv("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv")
-#> Rows: 289 Columns: 1121
+#> Rows: 289 Columns: 1147
 #> ── Column specification ────────────────────────────────────
 #> Delimiter: ","
 #> chr    (2): Province/State, Country/Region
-#> dbl (1119): Lat, Long, 1/22/20, 1/23/20, 1/24/20, 1/25/2...
+#> dbl (1145): Lat, Long, 1/22/20, 1/23/20, 1/24/20, 1/25/2...
 #> 
 #> ℹ Use `spec()` to retrieve the full column specification for this data.
 #> ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 glimpse(confirmedraw)
 #> Rows: 289
-#> Columns: 1,121
+#> Columns: 1,147
 #> $ `Province/State` <chr> NA, NA, NA, NA, NA, NA, NA, NA, N…
 #> $ `Country/Region` <chr> "Afghanistan", "Albania", "Algeri…
 #> $ Lat              <dbl> 33.93911, 41.15330, 28.03390, 42.…
@@ -1275,27 +1285,53 @@ glimpse(confirmedraw)
 #> $ `2/9/23`         <dbl> 208771, 334229, 271406, 47860, 10…
 #> $ `2/10/23`        <dbl> 208943, 334229, 271406, 47860, 10…
 #> $ `2/11/23`        <dbl> 208971, 334234, 271409, 47860, 10…
+#> $ `2/12/23`        <dbl> 208982, 334255, 271409, 47860, 10…
+#> $ `2/13/23`        <dbl> 209011, 334255, 271409, 47860, 10…
+#> $ `2/14/23`        <dbl> 209036, 334264, 271409, 47860, 10…
+#> $ `2/15/23`        <dbl> 209056, 334264, 271421, 47860, 10…
+#> $ `2/16/23`        <dbl> 209072, 334273, 271424, 47866, 10…
+#> $ `2/17/23`        <dbl> 209083, 334291, 271424, 47866, 10…
+#> $ `2/18/23`        <dbl> 209084, 334305, 271425, 47866, 10…
+#> $ `2/19/23`        <dbl> 209107, 334314, 271425, 47866, 10…
+#> $ `2/20/23`        <dbl> 209153, 334315, 271426, 47866, 10…
+#> $ `2/21/23`        <dbl> 209181, 334336, 271428, 47866, 10…
+#> $ `2/22/23`        <dbl> 209181, 334336, 271431, 47866, 10…
+#> $ `2/23/23`        <dbl> 209215, 334345, 271432, 47866, 10…
+#> $ `2/24/23`        <dbl> 209230, 334356, 271436, 47866, 10…
+#> $ `2/25/23`        <dbl> 209246, 334373, 271439, 47866, 10…
+#> $ `2/26/23`        <dbl> 209274, 334378, 271440, 47866, 10…
+#> $ `2/27/23`        <dbl> 209308, 334380, 271440, 47866, 10…
+#> $ `2/28/23`        <dbl> 209322, 334391, 271441, 47866, 10…
+#> $ `3/1/23`         <dbl> 209340, 334408, 271448, 47875, 10…
+#> $ `3/2/23`         <dbl> 209358, 334408, 271463, 47875, 10…
+#> $ `3/3/23`         <dbl> 209362, 334427, 271469, 47875, 10…
+#> $ `3/4/23`         <dbl> 209369, 334427, 271469, 47875, 10…
+#> $ `3/5/23`         <dbl> 209390, 334427, 271477, 47875, 10…
+#> $ `3/6/23`         <dbl> 209406, 334427, 271477, 47875, 10…
+#> $ `3/7/23`         <dbl> 209436, 334427, 271490, 47875, 10…
+#> $ `3/8/23`         <dbl> 209451, 334443, 271494, 47890, 10…
+#> $ `3/9/23`         <dbl> 209451, 334457, 271496, 47890, 10…
 confirmedraw %>% slice(1:10)# %>% datatable() # Check latest date at the end of data as tibble
-#> # A tibble: 10 × 1,121
-#>    Province/S…¹ Count…²   Lat   Long 1/22/…³ 1/23/…⁴ 1/24/…⁵
-#>    <chr>        <chr>   <dbl>  <dbl>   <dbl>   <dbl>   <dbl>
-#>  1 <NA>         Afghan…  33.9  67.7        0       0       0
-#>  2 <NA>         Albania  41.2  20.2        0       0       0
-#>  3 <NA>         Algeria  28.0   1.66       0       0       0
-#>  4 <NA>         Andorra  42.5   1.52       0       0       0
-#>  5 <NA>         Angola  -11.2  17.9        0       0       0
-#>  6 <NA>         Antarc… -71.9  23.3        0       0       0
-#>  7 <NA>         Antigu…  17.1 -61.8        0       0       0
-#>  8 <NA>         Argent… -38.4 -63.6        0       0       0
-#>  9 <NA>         Armenia  40.1  45.0        0       0       0
-#> 10 Australian … Austra… -35.5 149.         0       0       0
-#> # … with 1,114 more variables: `1/25/20` <dbl>,
-#> #   `1/26/20` <dbl>, `1/27/20` <dbl>, `1/28/20` <dbl>,
-#> #   `1/29/20` <dbl>, `1/30/20` <dbl>, `1/31/20` <dbl>,
-#> #   `2/1/20` <dbl>, `2/2/20` <dbl>, `2/3/20` <dbl>,
-#> #   `2/4/20` <dbl>, `2/5/20` <dbl>, `2/6/20` <dbl>,
-#> #   `2/7/20` <dbl>, `2/8/20` <dbl>, `2/9/20` <dbl>,
-#> #   `2/10/20` <dbl>, `2/11/20` <dbl>, `2/12/20` <dbl>, …
+#> # A tibble: 10 × 1,147
+#>    `Province/State`  `Country/Region`   Lat   Long `1/22/20`
+#>    <chr>             <chr>            <dbl>  <dbl>     <dbl>
+#>  1 <NA>              Afghanistan       33.9  67.7          0
+#>  2 <NA>              Albania           41.2  20.2          0
+#>  3 <NA>              Algeria           28.0   1.66         0
+#>  4 <NA>              Andorra           42.5   1.52         0
+#>  5 <NA>              Angola           -11.2  17.9          0
+#>  6 <NA>              Antarctica       -71.9  23.3          0
+#>  7 <NA>              Antigua and Bar…  17.1 -61.8          0
+#>  8 <NA>              Argentina        -38.4 -63.6          0
+#>  9 <NA>              Armenia           40.1  45.0          0
+#> 10 Australian Capit… Australia        -35.5 149.           0
+#> # ℹ 1,142 more variables: `1/23/20` <dbl>, `1/24/20` <dbl>,
+#> #   `1/25/20` <dbl>, `1/26/20` <dbl>, `1/27/20` <dbl>,
+#> #   `1/28/20` <dbl>, `1/29/20` <dbl>, `1/30/20` <dbl>,
+#> #   `1/31/20` <dbl>, `2/1/20` <dbl>, `2/2/20` <dbl>,
+#> #   `2/3/20` <dbl>, `2/4/20` <dbl>, `2/5/20` <dbl>,
+#> #   `2/6/20` <dbl>, `2/7/20` <dbl>, `2/8/20` <dbl>,
+#> #   `2/9/20` <dbl>, `2/10/20` <dbl>, `2/11/20` <dbl>, …
 ```
 
 We need to tranform data. The other data are similar.
@@ -1303,51 +1339,51 @@ We need to tranform data. The other data are similar.
 
 ```r
 deathsraw <- read_csv("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv")
-#> Rows: 289 Columns: 1121
+#> Rows: 289 Columns: 1147
 #> ── Column specification ────────────────────────────────────
 #> Delimiter: ","
 #> chr    (2): Province/State, Country/Region
-#> dbl (1119): Lat, Long, 1/22/20, 1/23/20, 1/24/20, 1/25/2...
+#> dbl (1145): Lat, Long, 1/22/20, 1/23/20, 1/24/20, 1/25/2...
 #> 
 #> ℹ Use `spec()` to retrieve the full column specification for this data.
 #> ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 deathsraw %>% slice(1)
-#> # A tibble: 1 × 1,121
-#>   Province/Sta…¹ Count…²   Lat  Long 1/22/…³ 1/23/…⁴ 1/24/…⁵
-#>   <chr>          <chr>   <dbl> <dbl>   <dbl>   <dbl>   <dbl>
-#> 1 <NA>           Afghan…  33.9  67.7       0       0       0
-#> # … with 1,114 more variables: `1/25/20` <dbl>,
-#> #   `1/26/20` <dbl>, `1/27/20` <dbl>, `1/28/20` <dbl>,
-#> #   `1/29/20` <dbl>, `1/30/20` <dbl>, `1/31/20` <dbl>,
-#> #   `2/1/20` <dbl>, `2/2/20` <dbl>, `2/3/20` <dbl>,
-#> #   `2/4/20` <dbl>, `2/5/20` <dbl>, `2/6/20` <dbl>,
-#> #   `2/7/20` <dbl>, `2/8/20` <dbl>, `2/9/20` <dbl>,
-#> #   `2/10/20` <dbl>, `2/11/20` <dbl>, `2/12/20` <dbl>, …
+#> # A tibble: 1 × 1,147
+#>   `Province/State` `Country/Region`   Lat  Long `1/22/20`
+#>   <chr>            <chr>            <dbl> <dbl>     <dbl>
+#> 1 <NA>             Afghanistan       33.9  67.7         0
+#> # ℹ 1,142 more variables: `1/23/20` <dbl>, `1/24/20` <dbl>,
+#> #   `1/25/20` <dbl>, `1/26/20` <dbl>, `1/27/20` <dbl>,
+#> #   `1/28/20` <dbl>, `1/29/20` <dbl>, `1/30/20` <dbl>,
+#> #   `1/31/20` <dbl>, `2/1/20` <dbl>, `2/2/20` <dbl>,
+#> #   `2/3/20` <dbl>, `2/4/20` <dbl>, `2/5/20` <dbl>,
+#> #   `2/6/20` <dbl>, `2/7/20` <dbl>, `2/8/20` <dbl>,
+#> #   `2/9/20` <dbl>, `2/10/20` <dbl>, `2/11/20` <dbl>, …
 ```
 
 
 ```r
 recoveredraw <- read_csv("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv")
-#> Rows: 274 Columns: 1121
+#> Rows: 274 Columns: 1147
 #> ── Column specification ────────────────────────────────────
 #> Delimiter: ","
 #> chr    (2): Province/State, Country/Region
-#> dbl (1119): Lat, Long, 1/22/20, 1/23/20, 1/24/20, 1/25/2...
+#> dbl (1145): Lat, Long, 1/22/20, 1/23/20, 1/24/20, 1/25/2...
 #> 
 #> ℹ Use `spec()` to retrieve the full column specification for this data.
 #> ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 recoveredraw %>% slice(1)
-#> # A tibble: 1 × 1,121
-#>   Province/Sta…¹ Count…²   Lat  Long 1/22/…³ 1/23/…⁴ 1/24/…⁵
-#>   <chr>          <chr>   <dbl> <dbl>   <dbl>   <dbl>   <dbl>
-#> 1 <NA>           Afghan…  33.9  67.7       0       0       0
-#> # … with 1,114 more variables: `1/25/20` <dbl>,
-#> #   `1/26/20` <dbl>, `1/27/20` <dbl>, `1/28/20` <dbl>,
-#> #   `1/29/20` <dbl>, `1/30/20` <dbl>, `1/31/20` <dbl>,
-#> #   `2/1/20` <dbl>, `2/2/20` <dbl>, `2/3/20` <dbl>,
-#> #   `2/4/20` <dbl>, `2/5/20` <dbl>, `2/6/20` <dbl>,
-#> #   `2/7/20` <dbl>, `2/8/20` <dbl>, `2/9/20` <dbl>,
-#> #   `2/10/20` <dbl>, `2/11/20` <dbl>, `2/12/20` <dbl>, …
+#> # A tibble: 1 × 1,147
+#>   `Province/State` `Country/Region`   Lat  Long `1/22/20`
+#>   <chr>            <chr>            <dbl> <dbl>     <dbl>
+#> 1 <NA>             Afghanistan       33.9  67.7         0
+#> # ℹ 1,142 more variables: `1/23/20` <dbl>, `1/24/20` <dbl>,
+#> #   `1/25/20` <dbl>, `1/26/20` <dbl>, `1/27/20` <dbl>,
+#> #   `1/28/20` <dbl>, `1/29/20` <dbl>, `1/30/20` <dbl>,
+#> #   `1/31/20` <dbl>, `2/1/20` <dbl>, `2/2/20` <dbl>,
+#> #   `2/3/20` <dbl>, `2/4/20` <dbl>, `2/5/20` <dbl>,
+#> #   `2/6/20` <dbl>, `2/7/20` <dbl>, `2/8/20` <dbl>,
+#> #   `2/9/20` <dbl>, `2/10/20` <dbl>, `2/11/20` <dbl>, …
 # Note differences in the number of rows/columns
 ```
 
@@ -1376,14 +1412,14 @@ Check the data.
 confirmed %>% filter(country == "Japan") %>%  ggplot() + geom_line(aes(x = date, y = confirmed))
 ```
 
-<img src="42-covid19_files/figure-html/unnamed-chunk-11-1.png" width="672" />
+<img src="42-covid19_files/figure-html/unnamed-chunk-13-1.png" width="672" />
 
 
 ```r
 df_tv %>% filter(country == "Japan") %>% filter(type == "confirmed") %>%  ggplot() + geom_line(aes(x = date, y = cases))
 ```
 
-<img src="42-covid19_files/figure-html/unnamed-chunk-12-1.png" width="672" />
+<img src="42-covid19_files/figure-html/unnamed-chunk-14-1.png" width="672" />
 
 _The `dplyr::rename` seems to have conflict with other `rename` function._
 
@@ -1421,10 +1457,10 @@ recovered <- recoveredraw %>%
 coronavirus_jhu <- full_join(confirmed, deaths) %>% full_join(recovered) %>%
   pivot_longer(c(confirmed, death, recovered), names_to = "cases") %>%
   arrange(cases, province, country, date)
-#> Joining, by = c("date", "province", "country", "lat",
-#> "long")
-#> Joining, by = c("date", "province", "country", "lat",
-#> "long")
+#> Joining with `by = join_by(date, province, country, lat,
+#> long)`
+#> Joining with `by = join_by(date, province, country, lat,
+#> long)`
 coronavirus_jhu %>% slice(1:10) # %>% datatable()
 #> # A tibble: 2,900 × 7
 #> # Groups:   country, province [290]
@@ -1440,7 +1476,7 @@ coronavirus_jhu %>% slice(1:10) # %>% datatable()
 #>  8 2020-01-30 <NA>     Afghanistan  33.9  67.7 confir…     0
 #>  9 2020-01-31 <NA>     Afghanistan  33.9  67.7 confir…     0
 #> 10 2020-02-01 <NA>     Afghanistan  33.9  67.7 confir…     0
-#> # … with 2,890 more rows
+#> # ℹ 2,890 more rows
 ```
 ### Aggregated by Countries
 
@@ -1463,7 +1499,7 @@ coronavirus_jhu %>% filter(!is.na(province)) %>% distinct(country)
 #>  8 Bonaire, Sint Eustatius and Saba Netherlands   
 #>  9 British Columbia                 Canada        
 #> 10 British Virgin Islands           United Kingdom
-#> # … with 81 more rows
+#> # ℹ 81 more rows
 ```
 
 Check the data associated with provinces.
@@ -1480,8 +1516,8 @@ coronavirus_jhu_country <- coronavirus_jhu %>%
 #> `summarise()` has grouped output by 'date', 'country'. You
 #> can override using the `.groups` argument.
 coronavirus_jhu_country # %>% datatable()
-#> # A tibble: 672,948 × 4
-#> # Groups:   date, country [224,316]
+#> # A tibble: 688,626 × 4
+#> # Groups:   date, country [229,542]
 #>    date       country     cases     value
 #>    <date>     <chr>       <chr>     <dbl>
 #>  1 2020-01-23 Afghanistan confirmed     0
@@ -1494,7 +1530,7 @@ coronavirus_jhu_country # %>% datatable()
 #>  8 2020-01-30 Afghanistan confirmed     0
 #>  9 2020-01-31 Afghanistan confirmed     0
 #> 10 2020-02-01 Afghanistan confirmed     0
-#> # … with 672,938 more rows
+#> # ℹ 688,616 more rows
 ```
 
 
@@ -1518,7 +1554,7 @@ covid <- owid_covid()
 
 ```r
 glimpse(covid)
-#> Rows: 309,639
+#> Rows: 360,669
 #> Columns: 67
 #> $ iso_code                                   <chr> "AFG", …
 #> $ continent                                  <chr> "Asia",…
@@ -1567,7 +1603,7 @@ glimpse(covid)
 #> $ new_vaccinations_smoothed_per_million      <dbl> NA, NA,…
 #> $ new_people_vaccinated_smoothed             <dbl> NA, NA,…
 #> $ new_people_vaccinated_smoothed_per_hundred <dbl> NA, NA,…
-#> $ stringency_index                           <dbl> NA, NA,…
+#> $ stringency_index                           <dbl> 0, 0, 0…
 #> $ population_density                         <dbl> 54.422,…
 #> $ median_age                                 <dbl> 18.6, 1…
 #> $ aged_65_older                              <dbl> 2.581, …
@@ -1599,10 +1635,12 @@ tdpm <- covid %>% drop_na(`total_deaths_per_million`) %>%
 DT::datatable(tdpm)
 ```
 
+
 ```{=html}
-<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-bd40cf23a080e9e20e00" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-bd40cf23a080e9e20e00">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81","82","83","84","85","86","87","88","89","90","91","92","93","94","95","96","97","98","99","100","101","102","103","104","105","106","107","108","109","110","111","112","113","114","115","116","117","118","119","120","121","122","123","124","125","126","127","128","129","130","131","132","133","134","135","136","137","138","139","140","141","142","143","144","145","146","147","148","149","150","151","152","153","154","155","156","157","158","159","160","161","162","163","164","165","166","167","168","169","170","171","172","173","174","175","176","177","178","179","180","181","182","183","184","185","186","187","188","189","190","191","192","193","194","195","196","197","198","199","200","201","202","203","204","205","206","207","208","209","210","211","212","213","214","215","216","217","218","219","220","221","222","223","224","225","226","227","228","229","230","231","232","233","234","235","236","237"],["Peru","Bulgaria","Bosnia and Herzegovina","Hungary","North Macedonia","Georgia","Croatia","Montenegro","Slovenia","Czechia","Slovakia","San Marino","Moldova","Greece","Lithuania","Romania","Gibraltar","Latvia","United Kingdom","United States","Chile","Brazil","Italy","Armenia","South America","Poland","Martinique","Belgium","Paraguay","Trinidad and Tobago","Argentina","Ukraine","Europe","Russia","Colombia","European Union","Aruba","North America","Serbia","Mexico","Portugal","Bermuda","Guadeloupe","Spain","France","Austria","Guam","Tunisia","High income","Sweden","Saint Lucia","Suriname","Estonia","Uruguay","Liechtenstein","French Polynesia","Barbados","Sint Maarten (Dutch part)","Germany","Bahamas","British Virgin Islands","Ecuador","Andorra","Lebanon","Panama","Luxembourg","Grenada","Monaco","Bolivia","Puerto Rico","Montserrat","Costa Rica","Kosovo","Ireland","South Africa","Belize","Finland","Iran","Seychelles","Guyana","Switzerland","Namibia","Curacao","Malta","Antigua and Barbuda","Cyprus","Bonaire Sint Eustatius and Saba","Denmark","Jersey","Saint Martin (French part)","Isle of Man","Canada","French Guiana","Israel","United States Virgin Islands","Netherlands","Albania","Jordan","Jamaica","Saint Vincent and the Grenadines","Turkey","Eswatini","Guatemala","Malaysia","Palestine","New Caledonia","Honduras","Botswana","Guernsey","Upper middle income","Bahrain","Dominica","Oman","Norway","Azerbaijan","Kazakhstan","Saint Kitts and Nevis","Fiji","Reunion","Libya","World","Turks and Caicos Islands","Northern Mariana Islands","Mauritius","Australia","Sri Lanka","American Samoa","Cuba","Anguilla","Belarus","Iceland","Cape Verde","El Salvador","South Korea","Mongolia","Wallis and Futuna","Japan","Kuwait","Maldives","Oceania","Indonesia","Philippines","Mayotte","Iraq","Micronesia (country)","New Zealand","Cayman Islands","Faeroe Islands","Palau","Thailand","Saint Barthelemy","Kyrgyzstan","Vietnam","Morocco","Marshall Islands","Nepal","Lower middle income","Dominican Republic","India","Greenland","Myanmar","Brunei","Sao Tome and Principe","Zimbabwe","Asia","Saint Pierre and Miquelon","Lesotho","Singapore","Saudi Arabia","Qatar","United Arab Emirates","Egypt","Solomon Islands","Mauritania","Venezuela","Zambia","Comoros","Afghanistan","Kiribati","Cambodia","Africa","Bangladesh","Djibouti","Algeria","Syria","Samoa","Gambia","Malawi","Pakistan","Gabon","Cook Islands","Senegal","Tonga","Equatorial Guinea","Sudan","Rwanda","Kenya","Timor","Laos","China","Guinea-Bissau","Nauru","Somalia","Uganda","Haiti","Cameroon","Mozambique","Papua New Guinea","Congo","Low income","Yemen","Ethiopia","Liberia","Angola","Madagascar","Uzbekistan","Ghana","Vanuatu","Nicaragua","Guinea","Mali","Togo","Cote d'Ivoire","Eritrea","Bhutan","Central African Republic","Burkina Faso","Democratic Republic of Congo","Sierra Leone","Nigeria","Tanzania","South Sudan","Tajikistan","Benin","Niger","Chad","Burundi"],[6466.921,5653.385,5052.992,4892.497,4621.691,4555.888,4518.95,4477.883,4395.137,4076.81,3750.717,3710.3,3700.894,3544.641,3517.017,3464.879,3458.09,3432.3,3334.092,3326.168,3290.036,3259.587,3216.669,3145.869,3095.399,2999.914,2993.1,2939.965,2931.831,2867.326,2866.866,2826.324,2765.317,2754.259,2751.319,2732.997,2705.267,2664.045,2623.718,2619.209,2591.41,2569.813,2569.726,2543.471,2524.037,2507.266,2415.839,2379.227,2299.345,2286.776,2273.839,2271.676,2263.088,2227.711,2210.647,2118.893,2091.278,2081.825,2080.764,2058.592,2042.64,2000.944,1991.408,1986.614,1955.504,1902.406,1897.034,1836.069,1830.808,1814.653,1812.826,1807.044,1798.986,1765.043,1712.946,1697.571,1691.65,1650.639,1605.451,1604.992,1601.744,1593.285,1579.721,1565.743,1556.968,1522.31,1515.6,1461.853,1453.121,1445.813,1372.229,1358.261,1356.019,1322.891,1316.861,1309.04,1267.979,1251.299,1250.627,1192.778,1188.394,1185.84,1131.814,1091.041,1087.222,1082.912,1065.096,1062.997,1057.967,1052.201,1043.31,1017.07,1011.297,1000.124,990.242,983.194,964.745,949.698,945.525,944.902,868.624,831.037,827.046,806.478,779.03,771.752,767.581,760.779,755.81,746.516,697.232,696.268,667.572,666.476,628.536,603.656,602.283,602.031,599.468,588.891,586.208,575.057,573.421,570.274,560.528,538.446,538.401,527.138,497.678,473.757,454.794,451.089,439.937,435.074,408.723,393.845,391.118,390.424,375.188,371.721,359.768,351.892,351.814,348.579,345.549,339.847,306.181,305.48,264.936,256.017,248.805,223.714,211.247,210.509,206.913,202.721,192.404,192.128,182.875,182.254,181.471,172.011,168.622,153.241,142.959,139.395,137.473,131.632,129.995,128.087,117.426,113.822,112.289,109.259,107.65,106.557,105.28,102.885,89.116,84.87,84.062,78.796,77.34,76.868,74.234,70.608,68.033,66.058,65.154,64.971,64.072,61.388,55.444,54.343,48.089,47.274,43.673,42.847,35.26,33.696,32.885,32.773,29.616,27.958,26.839,20.254,17.465,14.796,14.641,14.437,12.916,12.645,12.559,12.207,12.019,10.946,1.164]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>location<\/th>\n      <th>total_deaths_per_million<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":2},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-064e9530a69942795b90" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-064e9530a69942795b90">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81","82","83","84","85","86","87","88","89","90","91","92","93","94","95","96","97","98","99","100","101","102","103","104","105","106","107","108","109","110","111","112","113","114","115","116","117","118","119","120","121","122","123","124","125","126","127","128","129","130","131","132","133","134","135","136","137","138","139","140","141","142","143","144","145","146","147","148","149","150","151","152","153","154","155","156","157","158","159","160","161","162","163","164","165","166","167","168","169","170","171","172","173","174","175","176","177","178","179","180","181","182","183","184","185","186","187","188","189","190","191","192","193","194","195","196","197","198","199","200","201","202","203","204","205","206","207","208","209","210","211","212","213","214","215","216","217","218","219","220","221","222","223","224","225","226","227","228","229","230","231","232","233","234","235","236","237","238"],["Peru","Bulgaria","Bosnia and Herzegovina","Hungary","North Macedonia","Croatia","Georgia","Slovenia","Montenegro","Czechia","Latvia","Slovakia","San Marino","Moldova","Greece","Lithuania","Romania","Gibraltar","United Kingdom","United States","Chile","Italy","Brazil","Armenia","South America","Poland","Martinique","Belgium","Paraguay","Trinidad and Tobago","Argentina","Europe","European Union","Ukraine","Russia","Colombia","Aruba","North America","Portugal","Serbia","Mexico","France","Guadeloupe","Bermuda","Spain","Austria","Guam","Sweden","Tunisia","High income","Saint Lucia","Suriname","Uruguay","Liechtenstein","Estonia","French Polynesia","Barbados","Germany","Sint Maarten (Dutch part)","Bahamas","British Virgin Islands","Ecuador","Lebanon","Andorra","Panama","Finland","Grenada","Ireland","Monaco","Bolivia","Puerto Rico","Montserrat","Costa Rica","Kosovo","South Africa","Belize","Malta","Iran","Switzerland","Guyana","Seychelles","Namibia","Curacao","Antigua and Barbuda","Luxembourg","Cyprus","Bonaire Sint Eustatius and Saba","Denmark","Jersey","Saint Martin (French part)","Canada","Isle of Man","French Guiana","Israel","United States Virgin Islands","Netherlands","Jamaica","Albania","Jordan","Saint Vincent and the Grenadines","Turkey","Eswatini","Guatemala","Malaysia","Palestine","New Caledonia","Honduras","Botswana","Guernsey","Upper middle income","Norway","Bahrain","Dominica","Oman","Azerbaijan","Kazakhstan","Saint Kitts and Nevis","Fiji","Reunion","Libya","Australia","World","Turks and Caicos Islands","Northern Mariana Islands","Mauritius","Sri Lanka","American Samoa","Cuba","Anguilla","Belarus","Cape Verde","South Korea","Wallis and Futuna","New Zealand","Oceania","Mongolia","El Salvador","Maldives","Japan","Kuwait","Indonesia","Philippines","Mayotte","Iraq","Micronesia (country)","Cayman Islands","Faeroe Islands","Iceland","Palau","Thailand","Saint Barthelemy","Vietnam","Morocco","Marshall Islands","Nepal","Lower middle income","Dominican Republic","India","Greenland","Brunei","Myanmar","Sao Tome and Principe","Zimbabwe","Asia","Singapore","Saint Pierre and Miquelon","Lesotho","Solomon Islands","Saudi Arabia","Qatar","United Arab Emirates","Egypt","Mauritania","Venezuela","Zambia","Afghanistan","Comoros","Kiribati","Cambodia","Africa","Bangladesh","Djibouti","Kyrgyzstan","Algeria","Syria","Samoa","Gambia","Malawi","Pakistan","Gabon","Cook Islands","Senegal","Tonga","Equatorial Guinea","Sudan","Rwanda","Kenya","Timor","Laos","Tuvalu","China","Guinea-Bissau","Nauru","Somalia","Uganda","Haiti","Cameroon","Mozambique","Papua New Guinea","Congo","Low income","Yemen","Ethiopia","Liberia","Angola","Madagascar","Ghana","Vanuatu","Nicaragua","Guinea","Mali","Togo","Cote d'Ivoire","Uzbekistan","Eritrea","Bhutan","Central African Republic","Burkina Faso","Democratic Republic of Congo","Sierra Leone","Nigeria","Tanzania","South Sudan","Tajikistan","Benin","Niger","Chad","Burundi"],[6507.098,5675.944,5062.269,4900.824,4756.387,4588.919,4575.384,4475.331,4232.301,4099.394,4005.071,3750.717,3739.982,3713.421,3646.519,3549.38,3488.939,3458.09,3438.241,3384.308,3290.036,3267.569,3260.901,3155.579,3099.275,3004.555,3003.984,2946.056,2939.205,2867.326,2866.866,2799.775,2774.033,2768.594,2767.458,2751.415,2742.84,2700.005,2697.146,2627.793,2626.66,2599.316,2579.833,2569.813,2562.143,2520.69,2427.481,2401.286,2381.25,2341.41,2279.399,2271.676,2236.768,2210.647,2191.448,2118.893,2105.48,2098.829,2081.825,2058.592,2042.64,2001.777,1994.082,1991.408,1962.309,1960.747,1897.034,1864.583,1836.069,1833.016,1825.722,1812.826,1808.202,1802.353,1712.946,1697.571,1659.5,1656.737,1611.584,1606.228,1605.451,1597.959,1595.414,1556.968,1544.161,1522.31,1515.6,1500.104,1453.121,1445.813,1379.455,1372.229,1356.019,1344.798,1326.913,1308.698,1269.018,1267.979,1251.299,1192.778,1188.394,1187.504,1132.095,1095.844,1087.222,1082.912,1065.288,1064.517,1057.967,1054.901,1054.777,1043.31,1017.07,1011.297,1000.861,983.194,964.745,951.849,945.525,944.902,903.183,875.884,874.776,827.046,811.864,773.446,767.581,760.779,755.8099999999999,746.516,701.326,693.495,689.893,679.229,678.481,672.086,667.572,603.2859999999999,602.606,602.0309999999999,587.721,577.592,573.421,570.274,569.287,538.401,527.138,498.789,497.678,481.08,454.794,440.039,435.074,408.723,393.845,390.647,390.424,376.311,371.721,363.027,359.805,351.814,350.908,346.44,342.912,339.847,307.482,274.759,264.936,256.017,248.805,223.714,210.509,206.913,203.27,193.611,192.404,182.875,182.254,181.561,172.192,168.622,154.435,153.241,142.959,139.395,137.473,131.632,129.995,128.506,117.426,113.822,112.289,109.259,107.65,106.557,105.298,102.885,89.116,88.22199999999999,85.47199999999999,84.062,78.79600000000001,77.34,76.86799999999999,74.23399999999999,70.71599999999999,68.245,66.05800000000001,65.154,65.089,64.072,61.388,55.444,54.399,48.157,43.673,42.847,35.26,33.768,32.885,32.773,29.651,29.341,27.958,26.839,20.254,17.553,14.827,14.641,14.437,12.916,12.645,12.559,12.207,12.019,10.946,1.164]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>location<\/th>\n      <th>total_deaths_per_million<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":2},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 ```
+
 
 
 ```r
@@ -1613,25 +1651,25 @@ covid %>% drop_na(`total_deaths_per_million`) %>%
   ggplot(aes(x = `total_deaths_per_million`)) + geom_histogram(bins = 30)
 ```
 
-<img src="42-covid19_files/figure-html/unnamed-chunk-21-1.png" width="672" />
+<img src="42-covid19_files/figure-html/unnamed-chunk-23-1.png" width="672" />
 
 
 ```r
 covid %>% filter(location == "Japan") %>% arrange(desc(date))
-#> # A tibble: 1,224 × 67
+#> # A tibble: 1,428 × 67
 #>    iso_code continent location date       total_cases
 #>    <chr>    <chr>     <chr>    <date>           <dbl>
-#>  1 JPN      Asia      Japan    2023-05-10    33793429
-#>  2 JPN      Asia      Japan    2023-05-09    33793429
-#>  3 JPN      Asia      Japan    2023-05-08    33793429
-#>  4 JPN      Asia      Japan    2023-05-07    33778993
-#>  5 JPN      Asia      Japan    2023-05-06    33772764
-#>  6 JPN      Asia      Japan    2023-05-05    33766957
-#>  7 JPN      Asia      Japan    2023-05-04    33759614
-#>  8 JPN      Asia      Japan    2023-05-03    33742983
-#>  9 JPN      Asia      Japan    2023-05-02    33725765
-#> 10 JPN      Asia      Japan    2023-05-01    33720739
-#> # ℹ 1,214 more rows
+#>  1 JPN      Asia      Japan    2023-11-30    33803572
+#>  2 JPN      Asia      Japan    2023-11-29    33803572
+#>  3 JPN      Asia      Japan    2023-11-28    33803572
+#>  4 JPN      Asia      Japan    2023-11-27    33803572
+#>  5 JPN      Asia      Japan    2023-11-26    33803572
+#>  6 JPN      Asia      Japan    2023-11-25    33803572
+#>  7 JPN      Asia      Japan    2023-11-24    33803572
+#>  8 JPN      Asia      Japan    2023-11-23    33803572
+#>  9 JPN      Asia      Japan    2023-11-22    33803572
+#> 10 JPN      Asia      Japan    2023-11-21    33803572
+#> # ℹ 1,418 more rows
 #> # ℹ 62 more variables: new_cases <dbl>,
 #> #   new_cases_smoothed <dbl>, total_deaths <dbl>,
 #> #   new_deaths <dbl>, new_deaths_smoothed <dbl>,
@@ -1647,5 +1685,5 @@ covid %>% filter(location == "Japan") %>% drop_na(new_deaths_smoothed) %>%
     labs(title=paste("Covid-19 Death/Day in Japan as of ", Sys.Date()))
 ```
 
-<img src="42-covid19_files/figure-html/unnamed-chunk-23-1.png" width="672" />
+<img src="42-covid19_files/figure-html/unnamed-chunk-25-1.png" width="672" />
 

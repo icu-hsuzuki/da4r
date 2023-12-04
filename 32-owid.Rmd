@@ -5,6 +5,8 @@
 
 > We study the R package `owidR` for importing data from Our World in Data.
 
+Warnings: The package does not work properly though there was no problem in AY2022.
+
 ## References
 
 The package official site contains other links. When you quote the package, use the link to the official site.
@@ -102,19 +104,19 @@ owid(chart_id = NULL, rename = NULL, tidy.date = TRUE, ...)
 
 * Example
 
-```{r cash=TRUE}
+```{r eval=FALSE}
 emissions <- owid("per-capita-ghg-emissions")
 ```
 
-```{r}
+```{r eval=FALSE}
 emissions
 ```
 
-```{r cash=TRUE}
+```{r eval=FALSE}
 rights <- owid("human-rights-scores")
 ```
 
-```{r}
+```{r eval=FALSE}
 rights
 ```
 
@@ -122,35 +124,35 @@ rights
 
 1. You can use `rename` to change column names. For example, 
 
-```{r}
+```{r eval=FALSE}
 owid("per-capita-ghg-emissions", rename = "ghgPcap")
 ```
 
 2. Since until after importing the data, you never know the original column name, and how many columns are for indicators. It is natural to change column names using `dpyr::rename`. In the next example, I used `Total including LUCF`. However, 'Total including LUCF' and "Total including LUCF" work as well.
 
-```{r}
+```{r eval=FALSE}
 emissions %>% rename(ghgPcap = `Per-capita greenhouse gas emissions in CO2 equivalents`)
 ```
 
 3. If there are more than one variables to rename, use vector notation as follows. Here `top_n(1)` is same as `slice(1)`, and gives the first row only.
 
-```{r}
+```{r eval=FALSE}
 owid("electoral-democracy") %>% top_n(1)
 ```
 
-```{r}
+```{r eval=FALSE}
 owid("electoral-democracy", rename = c("electoral_democracy", "vdem_high", "vdem_low"))
 ```
 
 
 4. You can use `dplyr::rename`, and keep the record of renaming column names.
 
-```{r}
+```{r eval=FALSE}
 (democracy <- owid("electoral-democracy"))
 ```
 
 
-```{r}
+```{r eval=FALSE}
 democracy <- democracy %>% 
   rename(`electoral_democracy` = `Electoral democracy`,  
          `vdem_high` = `electdem_vdem_high_owid`, 
@@ -169,12 +171,12 @@ owid_source(data)
 
 * Example
 
-```{r}
+```{r eval=FALSE}
 owid_source(emissions)
 ```
 
 
-```{r}
+```{r eval=FALSE}
 owid_source(rights)
 ```
 
@@ -252,7 +254,7 @@ owid_search("human rights") %>% as_tibble()
 
 Let’s use the human rights protection dataset.
 
-```{r}
+```{r eval=FALSE}
 rights <- owid("human-rights-protection")
 rights
 ```
@@ -260,7 +262,7 @@ rights
 ggplot2 makes it easy to visualise our data.
 
 
-```{r}
+```{r eval=FALSE}
 rights %>% 
   filter(entity %in% c("United Kingdom", "France", "United States", "Japan")) %>%  
   ggplot(aes(year, `Human rights protection`, colour = entity)) +
@@ -277,18 +279,18 @@ owid_search("internet") %>% as_tibble()
 
 Get a dataset used in an OWID chart.
 
-```{r}
+```{r eval=FALSE}
 owid("share-of-individuals-using-the-internet") %>% top_n(1)
 ```
 
-```{r}
+```{r eval=FALSE}
 internet <- owid("share-of-individuals-using-the-internet", rename = "internet_use")
 internet
 ```
 
 Get source information on an OWID dataset
 
-```{r}
+```{r eval=FALSE}
 owid_source(internet)
 ```
 
@@ -302,12 +304,12 @@ view_chart(internet)
 
 Plot an owid dataset.  The first is the simplest, and the second uses oied theme.
 
-```{r}
+```{r eval=FALSE}
 internet %>% filter(entity == "World") %>%
   ggplot(aes(year, internet_use))+ geom_line() 
 ```
 
-```{r}
+```{r eval=FALSE}
 internet %>% filter(entity == "World") %>%
   ggplot(aes(year, internet_use))+ geom_line() +
   labs(title = "Share of the World Population \nusing the Internet",
@@ -315,7 +317,7 @@ internet %>% filter(entity == "World") %>%
   scale_y_continuous(limits = c(0, 100))
 ```
 
-```{r}
+```{r eval=FALSE}
 internet %>% 
   filter(entity %in% c("United Kingdom", "Spain", "Russia", "Egypt", "Nigeria")) %>% 
   ggplot(aes(year, internet_use, color =  entity)) + geom_line() +
@@ -327,7 +329,7 @@ internet %>%
 
 Creating a choropleth map.
 
-```{r}
+```{r eval=FALSE}
 owid_map(internet, year = 2017) +
   labs(title = "Share of Population Using the Internet, 2017")
 ```
@@ -338,25 +340,25 @@ owid_map(internet, year = 2017) +
 owid_search("democrac") %>% as_tibble()
 ```
 
-```{r}
+```{r eval=FALSE}
 owid("electoral-democracy") %>% top_n(1)
 ```
 
-```{r}
+```{r eval=FALSE}
 democracy <- owid("electoral-democracy", rename = c("electoral_democracy", "vdem_high", "vdem_low"))
 democracy
 ```
 
-```{r}
+```{r eval=FALSE}
 owid_source(democracy)
 ```
 
-```{r}
+```{r eval=FALSE}
 owid_map(democracy, year = 2015, palette = "YlGn") +
   labs(title = "Electoral Democracy")
 ```
 
-```{r}
+```{r eval=FALSE}
 democracy %>% 
   filter(entity %in% c("United Kingdom", "Spain", "Russia", "Egypt", "Nigeria")) %>%
   ggplot(aes(year, electoral_democracy, color = entity)) + geom_line() +
@@ -365,7 +367,7 @@ democracy %>%
 ```
 
 
-```{r}
+```{r eval=FALSE}
 gdp <- owid("gdp-per-capita-worldbank", rename = "gdp")
 
 gov_exp <- owid("total-gov-expenditure-gdp-wdi", rename = "gov_exp")
@@ -385,7 +387,7 @@ left_join(): includes all rows in x.
 * Posit Primers - Tidy your data: https://posit.cloud/learn/primers/4
   - Join Data Sets: https://posit.cloud/learn/primers/4.3
 
-```{r}
+```{r eval=FALSE}
 data <- internet %>% 
   left_join(democracy) %>% 
   left_join(gdp) %>% 
@@ -396,7 +398,7 @@ data <- internet %>%
 
 Drawing scatter plot
 
-```{r message=FALSE, warning=FALSE}
+```{r eval=FALSE}
 data %>% 
   filter(year == 2015) %>% 
   ggplot(aes(internet_use, electoral_democracy)) +
@@ -406,7 +408,7 @@ data %>%
 ```
 
 
-```{r message=FALSE, warning=FALSE}
+```{r eval=FALSE}
 data %>% 
   filter(year == 2015) %>% 
   ggplot(aes(gdp, internet_use)) +
@@ -416,11 +418,11 @@ data %>%
 ```
 
 
-```{r}
+```{r eval=FALSE}
 model1 <- lm(electoral_democracy ~ internet_use, data)
 summary(model1)
 ```
-```{r message=FALSE, warning=FALSE}
+```{r eval=FALSE}
 model2 <- lm(gdp ~ internet_use, data)
 summary(model2)
 ```
@@ -438,7 +440,7 @@ library(texreg)
 ```
 
 
-```{r}
+```{r eval=FALSE}
 models <- list("Model 1" = model1,
                "Model 2" = model2)
 screenreg(models, stars = NULL)

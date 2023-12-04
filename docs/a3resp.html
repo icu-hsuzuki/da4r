@@ -4,24 +4,24 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 9 Assignment Three | Data Analysis for Researchers AY2022</title>
+<title>Chapter 9 Assignment Three | Data Analysis for Researchers</title>
 <meta name="author" content="Hiroshi Suzuki">
 <meta name="description" content="Assignment Three: The Week Four Assignment WDI and ggplot2 Create an R Notebook of a Data Analysis containing the following and submit the rendered HTML file (eg. a3_123456.nb.html by replacing...">
-<meta name="generator" content="bookdown 0.33 with bs4_book()">
-<meta property="og:title" content="Chapter 9 Assignment Three | Data Analysis for Researchers AY2022">
+<meta name="generator" content="bookdown 0.36 with bs4_book()">
+<meta property="og:title" content="Chapter 9 Assignment Three | Data Analysis for Researchers">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://icu-hsuzuki.github.io/da4r2022/a3resp.html">
 <meta property="og:description" content="Assignment Three: The Week Four Assignment WDI and ggplot2 Create an R Notebook of a Data Analysis containing the following and submit the rendered HTML file (eg. a3_123456.nb.html by replacing...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 9 Assignment Three | Data Analysis for Researchers AY2022">
+<meta name="twitter:title" content="Chapter 9 Assignment Three | Data Analysis for Researchers">
 <meta name="twitter:description" content="Assignment Three: The Week Four Assignment WDI and ggplot2 Create an R Notebook of a Data Analysis containing the following and submit the rendered HTML file (eg. a3_123456.nb.html by replacing...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script><link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
-<script src="libs/datatables-binding-0.27/datatables.js"></script><link href="libs/dt-core-1.12.1/css/jquery.dataTables.min.css" rel="stylesheet">
-<link href="libs/dt-core-1.12.1/css/jquery.dataTables.extra.css" rel="stylesheet">
-<script src="libs/dt-core-1.12.1/js/jquery.dataTables.min.js"></script><link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+<script src="libs/datatables-binding-0.30/datatables.js"></script><link href="libs/dt-core-1.13.4/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="libs/dt-core-1.13.4/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="libs/dt-core-1.13.4/js/jquery.dataTables.min.js"></script><link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
 <script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
@@ -58,7 +58,7 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="">Data Analysis for Researchers AY2022</a>
+        <a href="index.html" title="">Data Analysis for Researchers</a>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
@@ -111,7 +111,7 @@
 </ul>
 
         <div class="book-extra">
-          <p><a id="book-repo" href="https://github.com/icu-hsuzuki/da4r2022">View book source <i class="fab fa-github"></i></a></p>
+          <p><a id="book-repo" href="https://github.com/icu-hsuzuki/da4r">View book source <i class="fab fa-github"></i></a></p>
         </div>
       </nav>
 </div>
@@ -218,11 +218,11 @@
 <div class="sourceCode" id="cb213"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; ── Attaching core tidyverse packages ──── tidyverse 2.0.0 ──</span></span>
-<span><span class="co">#&gt; ✔ dplyr     1.1.2     ✔ readr     2.1.4</span></span>
+<span><span class="co">#&gt; ✔ dplyr     1.1.3     ✔ readr     2.1.4</span></span>
 <span><span class="co">#&gt; ✔ forcats   1.0.0     ✔ stringr   1.5.0</span></span>
-<span><span class="co">#&gt; ✔ ggplot2   3.4.2     ✔ tibble    3.2.1</span></span>
-<span><span class="co">#&gt; ✔ lubridate 1.9.2     ✔ tidyr     1.3.0</span></span>
-<span><span class="co">#&gt; ✔ purrr     1.0.1     </span></span>
+<span><span class="co">#&gt; ✔ ggplot2   3.4.4     ✔ tibble    3.2.1</span></span>
+<span><span class="co">#&gt; ✔ lubridate 1.9.3     ✔ tidyr     1.3.0</span></span>
+<span><span class="co">#&gt; ✔ purrr     1.0.2     </span></span>
 <span><span class="co">#&gt; ── Conflicts ────────────────────── tidyverse_conflicts() ──</span></span>
 <span><span class="co">#&gt; ✖ dplyr::filter() masks stats::filter()</span></span>
 <span><span class="co">#&gt; ✖ dplyr::lag()    masks stats::lag()</span></span>
@@ -268,9 +268,9 @@
 <h3>
 <span class="header-section-number">9.3.1</span> Setup<a class="anchor" aria-label="anchor" href="#setup"><i class="fas fa-link"></i></a>
 </h3>
-<p>It is not a must, but it is good to run the following code chunk and use <code>wdi_cache</code> for <code><a href="https://vincentarelbundock.github.io/WDI/reference/WDIsearch.html">WDIsearch()</a></code> to update the mata data. See <code>WDIcache</code> help.</p>
+<p>It is not a must, but it is good to run the following code chunk and use <code>wdi_cache</code> for <code><a href="https://rdrr.io/pkg/WDI/man/WDIsearch.html">WDIsearch()</a></code> to update the mata data. See <code>WDIcache</code> help.</p>
 <div class="sourceCode" id="cb214"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">wdi_cache</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://vincentarelbundock.github.io/WDI/reference/WDIcache.html">WDIcache</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">wdi_cache</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/WDI/man/WDIcache.html">WDIcache</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div id="indicators-used-in-assignment-three" class="section level3" number="9.3.2">
 <h3>
@@ -327,14 +327,14 @@
 <li>The simplest format 1.</li>
 </ul>
 <div class="sourceCode" id="cb216"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://vincentarelbundock.github.io/WDI/reference/WDIsearch.html">WDIsearch</a></span><span class="op">(</span><span class="st">"NY.GNS.ICTR.ZS"</span>, <span class="st">"indicator"</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/WDI/man/WDIsearch.html">WDIsearch</a></span><span class="op">(</span><span class="st">"NY.GNS.ICTR.ZS"</span>, <span class="st">"indicator"</span><span class="op">)</span></span>
 <span><span class="co">#&gt;            indicator                     name</span></span>
 <span><span class="co">#&gt; 11497 NY.GNS.ICTR.ZS Gross savings (% of GDP)</span></span></code></pre></div>
 <ul>
 <li>The simplest format 2.</li>
 </ul>
 <div class="sourceCode" id="cb217"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://vincentarelbundock.github.io/WDI/reference/WDIsearch.html">WDIsearch</a></span><span class="op">(</span><span class="st">"Literacy rate"</span>, <span class="st">"name"</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/WDI/man/WDIsearch.html">WDIsearch</a></span><span class="op">(</span><span class="st">"Literacy rate"</span>, <span class="st">"name"</span><span class="op">)</span></span>
 <span><span class="co">#&gt;                             indicator</span></span>
 <span><span class="co">#&gt; 27            1.1_YOUTH.LITERACY.RATE</span></span>
 <span><span class="co">#&gt; 8841            IN.POV.LIT.RAT.FEMALE</span></span>
@@ -495,7 +495,7 @@
 <li>Detailed with short = FALSE</li>
 </ul>
 <div class="sourceCode" id="cb218"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://vincentarelbundock.github.io/WDI/reference/WDIsearch.html">WDIsearch</a></span><span class="op">(</span><span class="st">"IP.JRN.ARTC.SC"</span>, <span class="st">"indicator"</span>, <span class="cn">FALSE</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/WDI/man/WDIsearch.html">WDIsearch</a></span><span class="op">(</span><span class="st">"IP.JRN.ARTC.SC"</span>, <span class="st">"indicator"</span>, <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="co">#&gt;           indicator</span></span>
 <span><span class="co">#&gt; 8885 IP.JRN.ARTC.SC</span></span>
 <span><span class="co">#&gt;                                           name</span></span>
@@ -510,7 +510,7 @@
 <li>You can use <code>wdi_cache</code> downloaded above to use the updated meta data.</li>
 </ul>
 <div class="sourceCode" id="cb219"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://vincentarelbundock.github.io/WDI/reference/WDIsearch.html">WDIsearch</a></span><span class="op">(</span><span class="st">"Government expenditure on education"</span>, <span class="st">"name"</span>, <span class="cn">FALSE</span>, <span class="va">wdi_cache</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/WDI/man/WDIsearch.html">WDIsearch</a></span><span class="op">(</span><span class="st">"Government expenditure on education"</span>, <span class="st">"name"</span>, <span class="cn">FALSE</span>, <span class="va">wdi_cache</span><span class="op">)</span></span>
 <span><span class="co">#&gt;                     indicator</span></span>
 <span><span class="co">#&gt; 16703          SE.XPD.PRIM.ZS</span></span>
 <span><span class="co">#&gt; 16707          SE.XPD.SECO.ZS</span></span>
@@ -592,7 +592,7 @@
 </li>
 </ul>
 <div class="sourceCode" id="cb220"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://vincentarelbundock.github.io/WDI/reference/WDI.html">WDI</a></span><span class="op">(</span>indicator <span class="op">=</span> <span class="st">"NY.GDP.PCAP.KD"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/WDI/man/WDI.html">WDI</a></span><span class="op">(</span>indicator <span class="op">=</span> <span class="st">"NY.GDP.PCAP.KD"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; Rows: 16492 Columns: 5
 #&gt; ── Column specification ────────────────────────────────────
 #&gt; Delimiter: ","
@@ -619,7 +619,7 @@
 <li>In order to use the downloaded data, we need to assign a name to it. It can be <code>df</code> if you download and use only one data, but it is better to assign the data to be a more descriptive name.</li>
 </ul>
 <div class="sourceCode" id="cb222"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">df_gdppcap</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://vincentarelbundock.github.io/WDI/reference/WDI.html">WDI</a></span><span class="op">(</span>indicator <span class="op">=</span> <span class="st">"NY.GDP.PCAP.KD"</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">df_gdppcap</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/WDI/man/WDI.html">WDI</a></span><span class="op">(</span>indicator <span class="op">=</span> <span class="st">"NY.GDP.PCAP.KD"</span><span class="op">)</span></span>
 <span><span class="va">df_gdppcap</span></span></code></pre></div>
 <pre><code>#&gt; Rows: 16492 Columns: 5
 #&gt; ── Column specification ────────────────────────────────────
@@ -647,7 +647,7 @@
 <li>If you want to use extra information such as <code>region</code>, <code>income</code>, <code>lending</code>, use <code>extra = TRUE</code>.</li>
 </ul>
 <div class="sourceCode" id="cb224"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">df_gdppcap_extra</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://vincentarelbundock.github.io/WDI/reference/WDI.html">WDI</a></span><span class="op">(</span>indicator <span class="op">=</span> <span class="st">"NY.GDP.PCAP.KD"</span>, extra <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">df_gdppcap_extra</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/WDI/man/WDI.html">WDI</a></span><span class="op">(</span>indicator <span class="op">=</span> <span class="st">"NY.GDP.PCAP.KD"</span>, extra <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="va">df_gdppcap_extra</span></span></code></pre></div>
 <pre><code>#&gt; Rows: 16492 Columns: 13
 #&gt; ── Column specification ────────────────────────────────────
@@ -698,7 +698,7 @@ Before saving it check whether you have <code>data</code> folder (or directory) 
 <div class="sourceCode" id="cb228"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ASEAN</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"BN"</span>, <span class="st">"ID"</span>, <span class="st">"KH"</span>, <span class="st">"LA"</span>, <span class="st">"MM"</span>, <span class="st">"MY"</span>, <span class="st">"PH"</span>, <span class="st">"SG"</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb229"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">df_gdppcap_asean</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://vincentarelbundock.github.io/WDI/reference/WDI.html">WDI</a></span><span class="op">(</span><span class="va">ASEAN</span>, <span class="st">"NY.GDP.PCAP.KD"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">df_gdppcap_asean</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/WDI/man/WDI.html">WDI</a></span><span class="op">(</span><span class="va">ASEAN</span>, <span class="st">"NY.GDP.PCAP.KD"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; Rows: 496 Columns: 5
 #&gt; ── Column specification ────────────────────────────────────
 #&gt; Delimiter: ","
@@ -876,7 +876,7 @@ Before saving it check whether you have <code>data</code> folder (or directory) 
 <code class="sourceCode R"><span><span class="va">wdi_cache</span><span class="op">$</span><span class="va">series</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">indicator</span> <span class="op">==</span> <span class="st">"SG.GEN.PARL.ZS"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a></span><span class="op">(</span><span class="va">name</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "Proportion of seats held by women in national parliaments (%)"</span></span></code></pre></div>
 <div class="sourceCode" id="cb241"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">df_women_in_parl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://vincentarelbundock.github.io/WDI/reference/WDI.html">WDI</a></span><span class="op">(</span>indicator <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>women_in_parl <span class="op">=</span> <span class="st">"SG.GEN.PARL.ZS"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<code class="sourceCode R"><span><span class="va">df_women_in_parl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/WDI/man/WDI.html">WDI</a></span><span class="op">(</span>indicator <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>women_in_parl <span class="op">=</span> <span class="st">"SG.GEN.PARL.ZS"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="va">women_in_parl</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; Rows: 5675 Columns: 5
 #&gt; ── Column specification ────────────────────────────────────
@@ -900,7 +900,7 @@ Before saving it check whether you have <code>data</code> folder (or directory) 
 <code class="sourceCode R"><span><span class="va">wdi_cache</span><span class="op">$</span><span class="va">series</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">indicator</span> <span class="op">==</span> <span class="st">"IP.JRN.ARTC.SC"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a></span><span class="op">(</span><span class="va">name</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "Scientific and technical journal articles"</span></span></code></pre></div>
 <div class="sourceCode" id="cb246"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">df_stja</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://vincentarelbundock.github.io/WDI/reference/WDI.html">WDI</a></span><span class="op">(</span>indicator <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>stja <span class="op">=</span> <span class="st">"IP.JRN.ARTC.SC"</span><span class="op">)</span>, extra <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<code class="sourceCode R"><span><span class="va">df_stja</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/WDI/man/WDI.html">WDI</a></span><span class="op">(</span>indicator <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>stja <span class="op">=</span> <span class="st">"IP.JRN.ARTC.SC"</span><span class="op">)</span>, extra <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="va">stja</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; Rows: 4655 Columns: 13
 #&gt; ── Column specification ────────────────────────────────────
@@ -937,7 +937,7 @@ Before saving it check whether you have <code>data</code> folder (or directory) 
 <code class="sourceCode R"><span><span class="va">wdi_cache</span><span class="op">$</span><span class="va">series</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">indicator</span> <span class="op">==</span> <span class="st">"MS.MIL.XPND.GD.ZS"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a></span><span class="op">(</span><span class="va">name</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "Military expenditure (% of GDP)"</span></span></code></pre></div>
 <div class="sourceCode" id="cb254"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">df_milxpnd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://vincentarelbundock.github.io/WDI/reference/WDI.html">WDI</a></span><span class="op">(</span>indicator <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>milxpnd <span class="op">=</span> <span class="st">"MS.MIL.XPND.GD.ZS"</span><span class="op">)</span>, extra <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<code class="sourceCode R"><span><span class="va">df_milxpnd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/WDI/man/WDI.html">WDI</a></span><span class="op">(</span>indicator <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>milxpnd <span class="op">=</span> <span class="st">"MS.MIL.XPND.GD.ZS"</span><span class="op">)</span>, extra <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="va">milxpnd</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; Rows: 9915 Columns: 13
 #&gt; ── Column specification ────────────────────────────────────
@@ -971,7 +971,7 @@ Before saving it check whether you have <code>data</code> folder (or directory) 
 <code class="sourceCode R"><span><span class="va">wdi_cache</span><span class="op">$</span><span class="va">series</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">indicator</span> <span class="op">==</span> <span class="st">"SL.UEM.TOTL.ZS"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a></span><span class="op">(</span><span class="va">name</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "Unemployment, total (% of total labor force) (modeled ILO estimate)"</span></span></code></pre></div>
 <div class="sourceCode" id="cb259"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">df_ur</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://vincentarelbundock.github.io/WDI/reference/WDI.html">WDI</a></span><span class="op">(</span>indicator <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>ur <span class="op">=</span> <span class="st">"SL.UEM.TOTL.ZS"</span><span class="op">)</span>, </span>
+<code class="sourceCode R"><span><span class="va">df_ur</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/WDI/man/WDI.html">WDI</a></span><span class="op">(</span>indicator <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>ur <span class="op">=</span> <span class="st">"SL.UEM.TOTL.ZS"</span><span class="op">)</span>, </span>
 <span>             extra <span class="op">=</span> <span class="cn">TRUE</span>, cache <span class="op">=</span> <span class="va">wdi_cache</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="va">ur</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; Rows: 7285 Columns: 13
 #&gt; ── Column specification ────────────────────────────────────
@@ -996,7 +996,7 @@ Before saving it check whether you have <code>data</code> folder (or directory) 
 <code class="sourceCode R"><span><span class="va">wdi_cache</span><span class="op">$</span><span class="va">series</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">indicator</span> <span class="op">==</span> <span class="st">"FP.CPI.TOTL.ZG"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a></span><span class="op">(</span><span class="va">name</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "Inflation, consumer prices (annual %)"</span></span></code></pre></div>
 <div class="sourceCode" id="cb263"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">df_infl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://vincentarelbundock.github.io/WDI/reference/WDI.html">WDI</a></span><span class="op">(</span>country <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"VN"</span>,<span class="st">"CN"</span>,<span class="st">"JP"</span><span class="op">)</span>, </span>
+<code class="sourceCode R"><span><span class="va">df_infl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/WDI/man/WDI.html">WDI</a></span><span class="op">(</span>country <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"VN"</span>,<span class="st">"CN"</span>,<span class="st">"JP"</span><span class="op">)</span>, </span>
 <span>               indicator <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>inf <span class="op">=</span> <span class="st">"FP.CPI.TOTL.ZG"</span><span class="op">)</span>, extra <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="va">inf</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; Rows: 123 Columns: 13
 #&gt; ── Column specification ────────────────────────────────────
@@ -1052,7 +1052,7 @@ Before saving it check whether you have <code>data</code> folder (or directory) 
 <span><span class="co">#&gt; [1] "Multidimensional poverty headcount ratio (% of total population)"   </span></span>
 <span><span class="co">#&gt; [2] "Poverty headcount ratio at national poverty lines (% of population)"</span></span></code></pre></div>
 <div class="sourceCode" id="cb268"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">df_wdi_poverty</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://vincentarelbundock.github.io/WDI/reference/WDI.html">WDI</a></span><span class="op">(</span></span>
+<code class="sourceCode R"><span><span class="va">df_wdi_poverty</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/WDI/man/WDI.html">WDI</a></span><span class="op">(</span></span>
 <span>  indicator <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>poverty <span class="op">=</span> <span class="st">"SI.POV.NAHC"</span>, multipoverty <span class="op">=</span> <span class="st">"SI.POV.MDIM"</span>, gdppercap <span class="op">=</span> <span class="st">"NY.GDP.PCAP.KD"</span><span class="op">)</span>, start <span class="op">=</span> <span class="fl">1990</span>,</span>
 <span>  extra <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="va">poverty</span>, <span class="va">multipoverty</span>, <span class="va">gdppercap</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; Rows: 292 Columns: 15
@@ -1109,7 +1109,7 @@ Before saving it check whether you have <code>data</code> folder (or directory) 
 <li>NY.GDP.PCAP.KD: GDP per capita (constant 2015 US$)</li>
 </ul>
 <div class="sourceCode" id="cb272"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://vincentarelbundock.github.io/WDI/reference/WDIsearch.html">WDIsearch</a></span><span class="op">(</span>string <span class="op">=</span> <span class="st">"NY.GDP.MKTP.KD"</span>, field <span class="op">=</span> <span class="st">"indicator"</span>, short <span class="op">=</span> <span class="cn">FALSE</span>, cache <span class="op">=</span> <span class="va">wdi_cache</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/WDI/man/WDIsearch.html">WDIsearch</a></span><span class="op">(</span>string <span class="op">=</span> <span class="st">"NY.GDP.MKTP.KD"</span>, field <span class="op">=</span> <span class="st">"indicator"</span>, short <span class="op">=</span> <span class="cn">FALSE</span>, cache <span class="op">=</span> <span class="va">wdi_cache</span><span class="op">)</span></span>
 <span><span class="co">#&gt;               indicator</span></span>
 <span><span class="co">#&gt; 12112    NY.GDP.MKTP.KD</span></span>
 <span><span class="co">#&gt; 12113 NY.GDP.MKTP.KD.87</span></span>
@@ -1131,7 +1131,7 @@ Before saving it check whether you have <code>data</code> folder (or directory) 
 <span><span class="co">#&gt; 12113                                                                          </span></span>
 <span><span class="co">#&gt; 12114 World Bank national accounts data, and OECD National Accounts data files.</span></span></code></pre></div>
 <div class="sourceCode" id="cb273"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://vincentarelbundock.github.io/WDI/reference/WDIsearch.html">WDIsearch</a></span><span class="op">(</span>string <span class="op">=</span> <span class="st">"NY.GDP.PCAP.KD"</span>, field <span class="op">=</span> <span class="st">"indicator"</span>, short <span class="op">=</span> <span class="cn">FALSE</span>, cache <span class="op">=</span> <span class="va">wdi_cache</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/WDI/man/WDIsearch.html">WDIsearch</a></span><span class="op">(</span>string <span class="op">=</span> <span class="st">"NY.GDP.PCAP.KD"</span>, field <span class="op">=</span> <span class="st">"indicator"</span>, short <span class="op">=</span> <span class="cn">FALSE</span>, cache <span class="op">=</span> <span class="va">wdi_cache</span><span class="op">)</span></span>
 <span><span class="co">#&gt;               indicator                               name</span></span>
 <span><span class="co">#&gt; 12127    NY.GDP.PCAP.KD GDP per capita (constant 2015 US$)</span></span>
 <span><span class="co">#&gt; 12128 NY.GDP.PCAP.KD.ZG   GDP per capita growth (annual %)</span></span>
@@ -1161,7 +1161,7 @@ Before saving it check whether you have <code>data</code> folder (or directory) 
 <span><span class="co">#&gt; [12] "SG"</span></span></code></pre></div>
 <p>Separate the iso3c’s of the countries with commas and read data using <code>WDI</code>.</p>
 <div class="sourceCode" id="cb276"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">wdi_gdp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://vincentarelbundock.github.io/WDI/reference/WDI.html">WDI</a></span><span class="op">(</span></span>
+<code class="sourceCode R"><span><span class="va">wdi_gdp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/WDI/man/WDI.html">WDI</a></span><span class="op">(</span></span>
 <span>  country <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"BR"</span>, <span class="st">"BN"</span>, <span class="st">"CN"</span>, <span class="st">"ID"</span>, <span class="st">"IN"</span>, <span class="st">"KH"</span>, <span class="st">"LA"</span>, <span class="st">"MM"</span>, <span class="st">"MY"</span>, <span class="st">"PH"</span>, <span class="st">"RU"</span>, <span class="st">"SG"</span><span class="op">)</span>,</span>
 <span>  indicator <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>gdp <span class="op">=</span> <span class="st">"NY.GDP.MKTP.KD"</span>, gdpPercap <span class="op">=</span> <span class="st">"NY.GDP.PCAP.KD"</span><span class="op">)</span>,</span>
 <span>  start <span class="op">=</span> <span class="fl">1960</span>, extra <span class="op">=</span> <span class="cn">TRUE</span>, cache <span class="op">=</span> <span class="va">wdi_cache</span><span class="op">)</span></span></code></pre></div>
@@ -1324,8 +1324,8 @@ Before saving it check whether you have <code>data</code> folder (or directory) 
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/icu-hsuzuki/da4r2022/blob/master/09-a3resp.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/icu-hsuzuki/da4r2022/edit/master/09-a3resp.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/icu-hsuzuki/da4r/blob/master/09-a3resp.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/icu-hsuzuki/da4r/edit/master/09-a3resp.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -1337,7 +1337,7 @@ Before saving it check whether you have <code>data</code> folder (or directory) 
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Data Analysis for Researchers AY2022</strong>" was written by Hiroshi Suzuki. It was last built on 2023-05-13.</p>
+    <p>"<strong>Data Analysis for Researchers</strong>" was written by Hiroshi Suzuki. It was last built on 2023-12-04.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

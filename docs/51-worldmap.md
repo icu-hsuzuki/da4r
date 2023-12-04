@@ -10,11 +10,11 @@ Using a map data in `data.frame` to apply `geom_map` or `geom_polygon` is possib
 ```r
 library(tidyverse)
 #> ── Attaching core tidyverse packages ──── tidyverse 2.0.0 ──
-#> ✔ dplyr     1.1.2     ✔ readr     2.1.4
+#> ✔ dplyr     1.1.3     ✔ readr     2.1.4
 #> ✔ forcats   1.0.0     ✔ stringr   1.5.0
-#> ✔ ggplot2   3.4.2     ✔ tibble    3.2.1
-#> ✔ lubridate 1.9.2     ✔ tidyr     1.3.0
-#> ✔ purrr     1.0.1     
+#> ✔ ggplot2   3.4.4     ✔ tibble    3.2.1
+#> ✔ lubridate 1.9.3     ✔ tidyr     1.3.0
+#> ✔ purrr     1.0.2     
 #> ── Conflicts ────────────────────── tidyverse_conflicts() ──
 #> ✖ dplyr::filter() masks stats::filter()
 #> ✖ dplyr::lag()    masks stats::lag()
@@ -97,6 +97,7 @@ Manual: https://cran.r-project.org/web/packages/rnaturalearth/rnaturalearth.pdf
 
 ```r
 library(rnaturalearth)
+#> Support for Spatial objects (`sp`) will be deprecated in {rnaturalearth} and will be removed in a future release of the package. Please use `sf` objects with {rnaturalearth}. For example: `ne_download(returnclass = 'sf')`
 library(rnaturalearthdata)
 #> 
 #> Attaching package: 'rnaturalearthdata'
@@ -589,7 +590,7 @@ ne_world_admin1 %>% mutate(region = case_when(
 ```r
 library(geodata)
 #> Loading required package: terra
-#> terra 1.7.29
+#> terra 1.7.55
 #> 
 #> Attaching package: 'terra'
 #> The following object is masked from 'package:tidyr':

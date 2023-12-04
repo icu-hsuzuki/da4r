@@ -1,14 +1,14 @@
 --- 
-title: "Data Analysis for Researchers AY2022"
+title: "Data Analysis for Researchers"
 author: "Hiroshi Suzuki"
-date: "2023-05-13"
+date: "2023-12-04"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
 url: https://icu-hsuzuki.github.io/da4r2022/
 # cover-image: path to the social sharing image like images/cover.jpg
 description: |
-  This is a book based on the lecture given in AY2022 at International Christian University compiled  using the bookdown package and RStudio.
+  This is a book based on the lectures given in AY2020-AY2023 at International Christian University compiled using the bookdown package and RStudio.
   The HTML output format for this example is bookdown::bs4_book,
   set in the _output.yml file.
 biblio-style: apalike
@@ -17,7 +17,7 @@ csl: chicago-fullnote-bibliography.csl
 
 # About {-}
 
-This is an extended lecture note of a course jointly taught with Professor Taisei Kaizoji in the Winter term AY2022. It is a ten-week course with two periods a week; one period is 70 minutes. This note mainly covers the contents of week two to week six, which I taught. Professor Kaizoji introduced and provided examples, somewhat related to his specialty Macroeconomics. By his request, I included work to recreate charts in the executive summary of the World Inequality Report 2022. 
+This is an extended lecture note of a course jointly taught mainly with Professor Taisei Kaizoji in the Winter term AY2020-AY2023. It is a ten-week course with two periods a week; one period is 70 minutes. This note mainly covers the contents of week two to week six, which I taught. Professor Kaizoji introduced and provided examples, somewhat related to his specialty Macroeconomics. By his request, I included work to recreate charts in the executive summary of the World Inequality Report 2022. 
 
 PART I, The Introduction, basically consists of the course contents presented in class and my responses to assignments two to five. 
 The first assignment is in Chapter 1, Introduction.
@@ -36,11 +36,11 @@ We focused on the `tidyvese` packages, which includes `ggplot2`, `dplyr`, `tidyr
 ```r
 library(tidyverse)
 #> ── Attaching core tidyverse packages ──── tidyverse 2.0.0 ──
-#> ✔ dplyr     1.1.2     ✔ readr     2.1.4
+#> ✔ dplyr     1.1.3     ✔ readr     2.1.4
 #> ✔ forcats   1.0.0     ✔ stringr   1.5.0
-#> ✔ ggplot2   3.4.2     ✔ tibble    3.2.1
-#> ✔ lubridate 1.9.2     ✔ tidyr     1.3.0
-#> ✔ purrr     1.0.1     
+#> ✔ ggplot2   3.4.4     ✔ tibble    3.2.1
+#> ✔ lubridate 1.9.3     ✔ tidyr     1.3.0
+#> ✔ purrr     1.0.2     
 #> ── Conflicts ────────────────────── tidyverse_conflicts() ──
 #> ✖ dplyr::filter() masks stats::filter()
 #> ✖ dplyr::lag()    masks stats::lag()

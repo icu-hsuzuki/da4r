@@ -41,11 +41,11 @@ Sys.setenv(LANG = "en")
 ```r
 library(tidyverse)
 #> ── Attaching core tidyverse packages ──── tidyverse 2.0.0 ──
-#> ✔ dplyr     1.1.2     ✔ readr     2.1.4
+#> ✔ dplyr     1.1.3     ✔ readr     2.1.4
 #> ✔ forcats   1.0.0     ✔ stringr   1.5.0
-#> ✔ ggplot2   3.4.2     ✔ tibble    3.2.1
-#> ✔ lubridate 1.9.2     ✔ tidyr     1.3.0
-#> ✔ purrr     1.0.1     
+#> ✔ ggplot2   3.4.4     ✔ tibble    3.2.1
+#> ✔ lubridate 1.9.3     ✔ tidyr     1.3.0
+#> ✔ purrr     1.0.2     
 #> ── Conflicts ────────────────────── tidyverse_conflicts() ──
 #> ✖ dplyr::filter() masks stats::filter()
 #> ✖ dplyr::lag()    masks stats::lag()
@@ -142,16 +142,16 @@ df1 <- WDI(country = G7,
            extra=TRUE, cache=wdi_cache)
 df1 %>% slice(1:10)  # for R Notebook use this line, for PDF delete by adding #
 #>    country iso2c iso3c year status lastupdated parl gini
-#> 1   Canada    CA   CAN 1960         2023-05-10   NA   NA
-#> 2   Canada    CA   CAN 1961         2023-05-10   NA   NA
-#> 3   Canada    CA   CAN 1962         2023-05-10   NA   NA
-#> 4   Canada    CA   CAN 1963         2023-05-10   NA   NA
-#> 5   Canada    CA   CAN 1964         2023-05-10   NA   NA
-#> 6   Canada    CA   CAN 1965         2023-05-10   NA   NA
-#> 7   Canada    CA   CAN 1966         2023-05-10   NA   NA
-#> 8   Canada    CA   CAN 1967         2023-05-10   NA   NA
-#> 9   Canada    CA   CAN 1968         2023-05-10   NA   NA
-#> 10  Canada    CA   CAN 1969         2023-05-10   NA   NA
+#> 1   Canada    CA   CAN 1960         2023-10-26   NA   NA
+#> 2   Canada    CA   CAN 1961         2023-10-26   NA   NA
+#> 3   Canada    CA   CAN 1962         2023-10-26   NA   NA
+#> 4   Canada    CA   CAN 1963         2023-10-26   NA   NA
+#> 5   Canada    CA   CAN 1964         2023-10-26   NA   NA
+#> 6   Canada    CA   CAN 1965         2023-10-26   NA   NA
+#> 7   Canada    CA   CAN 1966         2023-10-26   NA   NA
+#> 8   Canada    CA   CAN 1967         2023-10-26   NA   NA
+#> 9   Canada    CA   CAN 1968         2023-10-26   NA   NA
+#> 10  Canada    CA   CAN 1969         2023-10-26   NA   NA
 #>           region capital longitude latitude      income
 #> 1  North America  Ottawa  -75.6919  45.4215 High income
 #> 2  North America  Ottawa  -75.6919  45.4215 High income
@@ -505,16 +505,16 @@ wdi_cache$series %>% filter(indicator == "AG.LND.FRST.K2")
 df2 <- WDI(country = "all", indicator = c(area = "AG.LND.FRST.K2"), extra = TRUE, cache = wdi_cache) 
 df2 %>% slice(1:10)
 #>        country iso2c iso3c year    area status lastupdated
-#> 1  Afghanistan    AF   AFG 2022      NA         2023-05-10
-#> 2  Afghanistan    AF   AFG 2021      NA         2023-05-10
-#> 3  Afghanistan    AF   AFG 2020 12084.4         2023-05-10
-#> 4  Afghanistan    AF   AFG 2019 12084.4         2023-05-10
-#> 5  Afghanistan    AF   AFG 2018 12084.4         2023-05-10
-#> 6  Afghanistan    AF   AFG 2017 12084.4         2023-05-10
-#> 7  Afghanistan    AF   AFG 2016 12084.4         2023-05-10
-#> 8  Afghanistan    AF   AFG 2015 12084.4         2023-05-10
-#> 9  Afghanistan    AF   AFG 2014 12084.4         2023-05-10
-#> 10 Afghanistan    AF   AFG 2013 12084.4         2023-05-10
+#> 1  Afghanistan    AF   AFG 2013 12084.4         2023-10-26
+#> 2  Afghanistan    AF   AFG 2012 12084.4         2023-10-26
+#> 3  Afghanistan    AF   AFG 2011 12084.4         2023-10-26
+#> 4  Afghanistan    AF   AFG 2022      NA         2023-10-26
+#> 5  Afghanistan    AF   AFG 2021 12084.4         2023-10-26
+#> 6  Afghanistan    AF   AFG 2020 12084.4         2023-10-26
+#> 7  Afghanistan    AF   AFG 2019 12084.4         2023-10-26
+#> 8  Afghanistan    AF   AFG 2018 12084.4         2023-10-26
+#> 9  Afghanistan    AF   AFG 2017 12084.4         2023-10-26
+#> 10 Afghanistan    AF   AFG 2016 12084.4         2023-10-26
 #>        region capital longitude latitude     income lending
 #> 1  South Asia   Kabul   69.1761  34.5228 Low income     IDA
 #> 2  South Asia   Kabul   69.1761  34.5228 Low income     IDA
@@ -533,13 +533,13 @@ df2 %>% slice(1:10)
 
 ```r
 df1_wona <- df1 %>% drop_na(); nrow(df1_wona)
-#> [1] 138
+#> [1] 140
 ```
 
 
 ```r
 df2_wona <- df2 %>% drop_na(); nrow(df2_wona)
-#> [1] 7748
+#> [1] 7954
 ```
 
 2. Drop data only a specified indicator.
@@ -553,19 +553,19 @@ df1_wona_parl <- df1 %>% drop_na(parl); nrow(df1_wona_parl)
 
 ```r
 df1_wona_gini <- df1 %>% drop_na(gini); nrow(df1_wona_gini)
-#> [1] 213
+#> [1] 243
 ```
 
 
 ```r
 df1_wona_parl_gini <- df1 %>% drop_na(parl, gini); nrow(df1_wona_parl_gini)
-#> [1] 138
+#> [1] 140
 ```
 
 
 ```r
 df2_wona_area <- df2 %>% drop_na(area); nrow(df2_wona_area)
-#> [1] 7934
+#> [1] 8176
 ```
 
 Can you see why the number above is larger than the row number of `df2_wona`? Since there are many column imported using `extra=TRUE`, there may be NA values in the othre columns. 
@@ -595,7 +595,7 @@ df1 %>% drop_na(parl, gini) %>%
 
 ```r
 df1 %>% ggplot(aes(x = year, y = gini, col = country)) + geom_line()
-#> Warning: Removed 172 rows containing missing values
+#> Warning: Removed 159 rows containing missing values
 #> (`geom_line()`).
 ```
 
